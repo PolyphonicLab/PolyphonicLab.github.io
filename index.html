@@ -1,1 +1,274 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPGA Multichannel Audio Expansion Boards</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+
+        }
+        .hero {
+            background: url('images/polyphonic_background.png') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding-top: 300px;
+            padding-bottom: 30px;
+
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: auto;
+
+        }
+        .section_dark {
+            background: #222222;
+            color: white;
+        }
+        .section_light{
+            background: #FFFFFF;
+            color:black;
+        }
+        .section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+        
+        .section h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            background: #1e1e1e;
+
+            display: flex;
+            justify-content: space-between; /* Adjusts spacing between items */
+            align-items: flex-start; /* Aligns items to the top */
+            flex-wrap: nowrap; /* Prevents wrapping */
+            gap: 20px; /* Optional: Adds space between items */
+            overflow-x: auto; /* Enables horizontal scrolling if needed */
+        }
+
+        .feature-light {
+            background: #eeeeee;
+
+            display: flex;
+            justify-content: space-between; /* Adjusts spacing between items */
+            align-items: flex-start; /* Aligns items to the top */
+            flex-wrap: nowrap; /* Prevents wrapping */
+            gap: 20px; /* Optional: Adds space between items */
+            overflow-x: auto; /* Enables horizontal scrolling if needed */
+        }
+
+        .feature-box {
+            flex: 0 0 40%; /* Ensures two items fit on the same line (adjust percentage as needed) */
+            max-width: 40%; /* Prevents items from growing beyond half the width of the container */
+            padding: 30px;
+            margin: 10px 0; /* Vertical margin only */
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .feature-box .image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 18px;
+        }
+        .feature-box img {
+    width: 100%; /* Makes images responsive */
+    height: auto; /* Preserves aspect ratio */
+    border-radius: 8px;
+    object-fit: cover; /* Prevents distortion */
+}
+        .block-img {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            text-align: justify;
+            margin-bottom: 100px;
+
+        }
+        .block-img img {
+    max-width: 40%;
+    height: auto; /* Ensures aspect ratio is maintained */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    flex: 1 1 40%;
+    object-fit: contain; /* Ensures images fit within allocated space */
+}
+        .block-img .text-content {
+            flex: 1 1 50%;
+            padding: 10px;
+        }
+        .block-img .text-content p {
+        max-width: 80%;
+        }
+        .block-img .text-content-left{
+            flex:  1 1 50%;
+            padding: 10px;
+            text-align: right;
+              }
+        .block-img .text-content-left p {
+        max-width: 80%;
+        margin-left: auto;     /* auto on the left side ... */
+  margin-right: 0;       /* ... pins container to the right */
+        }
+        .block-img h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            font-weight: 300;
+
+        }
+        .block-img p {
+            font-size: 16px;
+            color: #222222;
+        }
+        .contact {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 60px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 20px;
+            color: white;
+            background: #585d61;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #7a8085;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Affordable and Scalable Audio Spatialization Solutions</h1>
+        <p> FPGA-powered real-time processing for unparalleled performances. </p>
+    </div>
+    <div class="section_dark">
+    <div class="section">
+        <h2>Experience Unmatched Performance</h2>
+        <p>Traditional CPUs struggle with real-time multichannel audio processing due to limited parallelism and high latency. FPGA-based systems achieve near-zero latency by executing thousands of computations in parallel.</p>
+    </div>
+</div>
+<div class="section_light">
+<div class="section">
+
+        <div class="block-img">
+            <img src="images/polyphonic_background.png" alt="Latency comparaison">
+            <div class="text-content">
+                <h2>Ultra Low Latency</h2>
+                <p>Current low-latency systems struggle to reach sub-millisecond levels. Leveraging ultra-low latency audio converters and FPGA processing, Polyphonic’s platform achieves an impressive 11μs latency from analog input to analog output.</p>
+            </div>
+        </div>
+        <div class="block-img">
+            <div class="text-content-left">
+                <h2>Massive Multichannel</h2>
+                <p>Thanks to its high parallelism, FPGA enables massive, perfectly synchronized multichannel processing, handling thousands of channels in real-time.</p>
+            </div>
+            <img src="images/polyphonic_background.png" alt="Multichannel application">
+        </div>
+
+    </div>
+    <div class="section_dark">
+    <div class="section">
+        <h2>Simple and Efficient FPGA Audio DSP Programming</h2>
+        <p>Programming FPGA-based DSPs has never been easier with the Syfala compiler and the Faust language.</p>
+    </div>
+    <div class="section_light">
+    <div class="section">
+        <div class="block-img">
+            <img src="images/compiler_log.png" alt="Syfala terminal">
+            <div class="text-content">
+                <h2>The Syfala Compiler</h2>
+                <p>Syfala allows easy programming of FPGA systems using the high-level Faust programming language or C++.</p>
+                <p>• Compiles Faust DSP code to FPGA.<br>• Supports ultra-low latency audio processing.<br>• Intuitive and easy-to-use command-line interface.</p>
+                <a class="btn" href="https://inria-emeraude.github.io/syfala/" target="_blank">Learn More</a>
+            </div>
+        </div>
+        <div class="block-img">
+            <div class="text-content-left">
+                <h2>Faust Language</h2>
+                <p> Faust is a widely-used, accessible audio programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc.</p>
+                <a class="btn" href="https://faust.grame.fr/" target="_blank">Learn More</a>
+            </div>
+            <img src="images/faust.png" alt="Faust Program" >
+        </div>
+        <div class="block-img">
+            <img src="images/popophone.jpg" alt="Controllers">
+            <div class="text-content">
+                <h2>Keep Control</h2>
+                <p>Control your audio program with an auto-generated GUI, a physical controller or even an embedded Linux to seamlessly integrate Ethernet, MIDI, and more.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="section_dark">
+        <div class="section">
+        <h2>Multichannel Low Latency Audio Interfaces</h2>
+
+
+        <p>Polyphonic ensures seamless integration with audio systems through custom audio interfaces.</p>
+
+
+            <div class="feature">
+                <div class="feature-box">
+                    <img src="images/TDM.jpg" alt="Frugal Interface">
+                    <h3>Polyphonic Standalone Board</h3>
+                    <p>•32 input & output channels, expandable up to 512
+                        <br>• Powered by Xilinx Zynq FPGA
+                        <br>• Compact, like a small audio interface
+                        <br>• A true plug-and-play solution</p>
+                </div>
+                <div class="feature-box">
+                    <img src="images/TDM.jpg" alt="Frugal Interface">
+                    <h3>Frugal Interface</h3>
+                    <p>• 32 output channels per board, expandable to 224.<br>• Cost-effective and easy to integrate.<br>• Compatible with Digilent’s Zybo FPGA board.</p>
+                </div>
+                <div class="feature-box">
+                    <img src="images/ull.png" alt="Ultra Low Latency Interface">
+                    <h3>Ultra Low Latency Interface</h3>
+                    <p>• 32 input & output channels, expandable to 512.<br>• 10μs latency at 768kHz.<br>• Xilinx/AMD Ultrascale+ FPGA compatible.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- More sections of your website can follow here -->
+    <div class="contact">
+        <h2>Contact & Resources</h2>
+        <p>Email: maxime.popoff@inria.fr</p>
+        <a class="btn" href="https://github.com/inria-emeraude/syfala" target="_blank">GitHub Repository</a>
+    </div>
+
+</body>
+</html>
