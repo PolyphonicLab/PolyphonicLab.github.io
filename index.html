@@ -107,6 +107,7 @@
 
         .modal_section, .block-img {
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
             gap: 2rem;
             justify-content: center;
@@ -114,7 +115,16 @@
             text-align: justify;
             margin-bottom: 100px;
         }
-
+        .block-img.reverse {
+        flex-direction: row-reverse;
+        display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            text-align: justify;
+            margin-bottom: 100px;
+    }
         .block-img a {
             max-width: 40%;
         }
@@ -273,6 +283,7 @@
             .block-img img, .block-img .text-content, .block-img .text-content-left {
                 margin-bottom: 20px;
             }
+            
         }
     </style>
 </head>
@@ -301,7 +312,7 @@
                     <a href="#" class="open-modal" data-modal="latency">More...</a>
                 </div>
             </div>
-            <div class="block-img">
+            <div class="block-img reverse">
                 <div class="text-content-left">
                     <h2>Massive Multichannel</h2>
                     <p>Thanks to its high parallelism, FPGA enables massive, perfectly synchronized multichannel processing, handling thousands of channels in real-time.</p>
