@@ -215,22 +215,18 @@
         }
 
         .modal__close {
-            position: absolute;
-            top: -20px;
-            right: 10px;
-            background: white;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s;
+}
 
-        .modal__close:hover {
-            background: #ddd;
-        }
+.modal__close:hover {
+    color: red;
+}
 
         .text-content_modal {
             flex: 1 1 60%;
@@ -288,7 +284,7 @@
             border-radius: 5px;
             font-size: 12px;
         }
-        .feature {
+        .feature, .feature_modal{
         display: flex;
         overflow-x: auto;  /* Enables horizontal scrolling */
         scroll-snap-type: x mandatory;
@@ -296,10 +292,11 @@
         gap: 0px; /* Adds spacing between items */
     }
 
-    .feature-box {
-        flex: 0 0 70%;  /* Make it smaller than full width */
-        max-width: 70%;
+    .feature-box, .feature-box_modal{
+        flex: 0 0 80%;  /* Make it smaller than full width */
+        max-width: 80%;
         scroll-snap-align: start;
+        padding-right: 0; /* Ensures no inner spacing */
     }
 
     .feature::-webkit-scrollbar {
@@ -463,6 +460,7 @@
 
     <div id="gui" class="modal">
         <div class="modal__window">
+            <span class="modal__close">&times;</span> <!-- Closing cross -->
             <h2>Multiple ways to control your application.</h2>
             <p>Syfala generates various controller interfaces and automatically configures them to suit your DSP needs based on the controller used in your Faust program.</p>
             <div class="feature_modal">
