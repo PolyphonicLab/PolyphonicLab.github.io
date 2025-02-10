@@ -11,23 +11,37 @@
             margin: 0;
             padding: 0;
         }
+        .banner {
+            background: black;
+            position: relative;
+            width: 100%;
+            height: auto; /* Adjust height as needed */
+            overflow: hidden;
+        }
 
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the banner */
+}
         .hero {
-            background: url('images/polyphonic_background.png') no-repeat center center/cover;
+            background: black;
             color: white;
             text-align: center;
-            padding: 300px 0 30px;
+            padding: 30px 5px 30px;
         }
 
         .hero h1 {
-            font-size: 52px;
-            font-weight: 300;
+            margin-top: 0;
+            font-size: 40px;
+            font-weight: 100;
             margin-bottom: 15px;
         }
 
         .hero p {
             font-size: 22px;
             max-width: 700px;
+            font-weight: 400;
             margin: auto;
         }
 
@@ -112,9 +126,22 @@
             justify-content: center;
             align-items: center;
             text-align: justify;
+        }
+        .block-img {
             margin-bottom: 100px;
         }
-
+        .modal_section img{
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+ 
+        .modal_section img{
+            width: 65%;
+        }
+        .modal_section_legend{
+            width:30%
+        }
+    }
         .block-img a {
             max-width: 40%;
         }
@@ -237,7 +264,7 @@
         @media (max-width: 768px) {
  
             .hero {
-                padding: 150px 0 15px;
+                padding: 15px 0 15px;
             }
 
             .hero h1 {
@@ -290,23 +317,39 @@
         scroll-snap-type: x mandatory;
         padding: 20px;
         gap: 0px; /* Adds spacing between items */
-    }
+        margin-top:0;
+        margin-bottom:0;
+        padding-top: 0;
+        padding-bottom: 0;
 
+    }
+    .feature_modal{
+        margin:0;
+        padding: 0;
+    }
     .feature-box, .feature-box_modal{
         flex: 0 0 80%;  /* Make it smaller than full width */
         max-width: 80%;
         scroll-snap-align: start;
         padding-right: 0; /* Ensures no inner spacing */
     }
-
+    .feature-box_modal{
+        padding-top: 0; /* Ensures no inner spacing */
+    }
     .feature::-webkit-scrollbar {
         display: none;  /* Hides scrollbar for a cleaner look */
     }
-
+    .modal__window {
+        overflow-x: auto;
+            overflow-y: auto;
+    }
         }
     </style>
 </head>
 <body>
+    <div class="banner">
+    <img src="images/banner.png" alt="banner">
+</div>
     <div class="hero">
         <h1>Affordable and Scalable Audio Spatialization Solutions</h1>
         <p>FPGA-powered real-time processing for unparalleled performances.</p>
@@ -436,10 +479,11 @@
 
     <div id="latency" class="modal">
         <div class="modal__window">
+            <span class="modal__close">&times;</span> <!-- Closing cross -->
             <h2>Latency Comparison</h2>
             <div class="modal_section">
-                <div>
                     <img src="images/latency.png" alt="Latency comparaison">
+                    <div class="modal_section_legend">
                     <p>All results given here have been tested in our laboratory with the following parameters:<br>• Bela: sampling rate = 22.005 kHz, 2 block samples<br>• Speedgoat: sampling rate = 48 kHz, 2 block samples<br>• Polyphonic: sampling rate = 48 kHz, 1 block sample</p>
                 </div>
                 <div class="text-content_modal">
@@ -452,6 +496,7 @@
 
     <div id="multichannel" class="modal">
         <div class="modal__window">
+            <span class="modal__close">&times;</span> <!-- Closing cross -->
             <h2>toto multicanal</h2>
             <img src="images/polyphonic_background.png" alt="Latency comparaison">
             <p>Hello there, I am a nice Modal Window.</p>
