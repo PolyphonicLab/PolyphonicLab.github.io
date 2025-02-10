@@ -51,9 +51,56 @@
             margin-bottom: 30px;
         }
 
+
+        .feature_modal {
+            background: #EEEEEE;
+            display: flex;
+            justify-content: space-between; /* Adjusts spacing between items */
+            align-items: flex-start; /* Aligns items to the top */
+            flex-wrap: nowrap; /* Prevents wrapping */
+            overflow-x: auto; /* Enables horizontal scrolling if needed */
+            overflow-y: auto;
+            padding-left: 10px;
+            max-height: 80vh;  /* Prevents it from exceeding viewport height */
+
+        }
+
+
+        .feature-box_modal {
+            padding-right: 30px;
+            padding-left: 30px;
+            margin: 10px 0; /* Vertical margin only */
+            border-radius: 10px;
+            text-align: left;
+            color: black;
+    max-height: 50vh;
+    object-fit: contain;
+
+
+        }
+   
+        .feature-box_modal .image-placeholder {
+            background: #AAAAAA;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 18px;
+
+        }
+   
+
+        .feature-box_modal img {
+            max-width: 100%;  /* Ensures image does not exceed modal width */
+    max-height: 35vh;  /* Prevents vertical overflow */
+    height: auto;
+    object-fit: contain;
+    object-fit: contain;
+}
         .feature {
-            background: #1e1e1e;
-
+            background: #EEEEEE;
             display: flex;
             justify-content: space-between; /* Adjusts spacing between items */
             align-items: flex-start; /* Aligns items to the top */
@@ -62,16 +109,6 @@
             overflow-x: auto; /* Enables horizontal scrolling if needed */
         }
 
-        .feature-light {
-            background: #eeeeee;
-
-            display: flex;
-            justify-content: space-between; /* Adjusts spacing between items */
-            align-items: flex-start; /* Aligns items to the top */
-            flex-wrap: nowrap; /* Prevents wrapping */
-            gap: 20px; /* Optional: Adds space between items */
-            overflow-x: auto; /* Enables horizontal scrolling if needed */
-        }
 
         .feature-box {
             flex: 0 0 40%; /* Ensures two items fit on the same line (adjust percentage as needed) */
@@ -85,7 +122,7 @@
         .feature-box .image-placeholder {
             width: 100%;
             height: 200px;
-            background: #000;
+            background: #AAAAAA;
             border-radius: 10px;
             margin-bottom: 15px;
             display: flex;
@@ -100,6 +137,19 @@
     border-radius: 8px;
     object-fit: cover; /* Prevents distortion */
 }
+.modal_section {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            text-align: justify;
+            margin-bottom: 100px;
+
+        }
+        .modal_section img{
+            width: 100%; /* Makes images responsive */
+}
         .block-img {
             display: flex;
             flex-wrap: wrap;
@@ -111,12 +161,22 @@
 
         }
         .block-img img {
-    max-width: 40%;
+    max-width: 100%;
     height: auto; /* Ensures aspect ratio is maintained */
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     flex: 1 1 40%;
     object-fit: contain; /* Ensures images fit within allocated space */
+    transition:transform 0.25s ease;
+}
+.block-img a {
+    max-width: 40%;
+
+}
+
+.block-img img:hover {
+    -webkit-transform:scale(1.1); /* or some other value */
+    transform:scale(1.1);
 }
         .block-img .text-content {
             flex: 1 1 50%;
@@ -165,10 +225,84 @@
         .btn:hover {
             background: #7a8085;
         }
-        
+
+        /* Default hidden modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    z-index: 9999;
+    height:100%;
+    width:100%
+}
+
+/* Show modal when active */
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__window {
+    background-color: white;
+    color: #222222;
+    padding: 4em 2em;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10000; /* Ensures modal is on top */
+    max-width: 80%;
+    max-height: 80vh;  /* Prevents it from exceeding viewport height */
+    overflow: hidden; 
+    font-size: 16px;
+}
+
+
+.modal__window h2{
+    font-size: 40px;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    font-weight: 300;}
+
+
+/* Close Button Styling */
+.modal__close {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    background: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease-in-out;
+}
+
+.modal__close:hover {
+    background: #ddd;
+}
+
+ .text-content_modal {
+            flex: 1 1 60%;
+            padding: 10px;
+            font-size: 20px;
+        }
+  
+
     </style>
 </head>
 <body>
+
+
+
     <div class="hero">
         <h1>Affordable and Scalable Audio Spatialization Solutions</h1>
         <p> FPGA-powered real-time processing for unparalleled performances. </p>
@@ -179,14 +313,20 @@
         <p>Traditional CPUs struggle with real-time multichannel audio processing due to limited parallelism and high latency. FPGA-based systems achieve near-zero latency by executing thousands of computations in parallel.</p>
     </div>
 </div>
+
+
+
+
+      
 <div class="section_light">
 <div class="section">
 
         <div class="block-img">
-            <img src="images/polyphonic_background.png" alt="Latency comparaison">
+            <a href="#" class="open-modal" data-modal="latency">
+                <img src="images/latency.png" alt="Latency comparaison" ></a>
             <div class="text-content">
-                <h2>Ultra Low Latency</h2>
-                <p>Current low-latency systems struggle to reach sub-millisecond levels. Leveraging ultra-low latency audio converters and FPGA processing, Polyphonic’s platform achieves an impressive 11μs latency from analog input to analog output.</p>
+                <h2>Ultra Low Audio Latency</h2>
+                <p>Current low-latency audio systems struggle to reach sub-millisecond levels. Leveraging ultra-low latency audio converters and FPGA processing, Polyphonic’s platform achieves an impressive 11μs latency from analog input to analog output.</p><a href="#" class="open-modal" data-modal="latency">More...</a>
             </div>
         </div>
         <div class="block-img">
@@ -194,7 +334,8 @@
                 <h2>Massive Multichannel</h2>
                 <p>Thanks to its high parallelism, FPGA enables massive, perfectly synchronized multichannel processing, handling thousands of channels in real-time.</p>
             </div>
-            <img src="images/polyphonic_background.png" alt="Multichannel application">
+            <a href="#" class="open-modal" data-modal="multichannel">
+            <img src="images/polyphonic_background.png" alt="Multichannel application"></a>
         </div>
 
     </div>
@@ -206,27 +347,30 @@
     <div class="section_light">
     <div class="section">
         <div class="block-img">
-            <img src="images/compiler_log.png" alt="Syfala terminal">
+            <a href="https://inria-emeraude.github.io/syfala/"><img src="images/compiler_log.png" alt="Syfala terminal"></a>
             <div class="text-content">
                 <h2>The Syfala Compiler</h2>
                 <p>Syfala allows easy programming of FPGA systems using the high-level Faust programming language or C++.</p>
                 <p>• Compiles Faust DSP code to FPGA.<br>• Supports ultra-low latency audio processing.<br>• Intuitive and easy-to-use command-line interface.</p>
-                <a class="btn" href="https://inria-emeraude.github.io/syfala/" target="_blank">Learn More</a>
+                <a class="btn" href="https://inria-emeraude.github.io/syfala/" target="_blank">Syfala Repository</a>
             </div>
         </div>
         <div class="block-img">
             <div class="text-content-left">
                 <h2>Faust Language</h2>
                 <p> Faust is a widely-used, accessible audio programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc.</p>
-                <a class="btn" href="https://faust.grame.fr/" target="_blank">Learn More</a>
+                <a class="btn" href="https://faust.grame.fr/" target="_blank">Faust Website</a>
             </div>
-            <img src="images/faust.png" alt="Faust Program" >
+            <a href="https://faust.grame.fr/"><img src="images/faust.png" alt="Faust Program" ></a>
         </div>
         <div class="block-img">
+            <a href="#" class="open-modal" data-modal="gui">
             <img src="images/popophone.jpg" alt="Controllers">
+             </a>
             <div class="text-content">
                 <h2>Keep Control</h2>
                 <p>Control your audio program with an auto-generated GUI, a physical controller or even an embedded Linux to seamlessly integrate Ethernet, MIDI, and more.</p>
+                <a href="#" class="open-modal" data-modal="gui">More...</a>
             </div>
         </div>
 
@@ -238,10 +382,12 @@
 
         <p>Polyphonic ensures seamless integration with audio systems through custom audio interfaces.</p>
 
-
+    </div>
+    <div class="section_light">
+    <div class="section">
             <div class="feature">
                 <div class="feature-box">
-                    <img src="images/TDM.jpg" alt="Frugal Interface">
+                    <img src="images/PCB_new_top.png" alt="Polyphonic board">
                     <h3>Polyphonic Standalone Board</h3>
                     <p>•32 input & output channels, expandable up to 512
                         <br>• Powered by Xilinx Zynq FPGA
@@ -262,13 +408,137 @@
             </div>
         </div>
     </div>
+    <div class="section_dark">
+        <div class="section">
+        <h2>Applications</h2>
 
+
+        <p>TODO</p>
+    </div>
+    </div>
+    <div class="section_light">
+    <div class="section">
+        toto
+    </div>
+</div>
     <!-- More sections of your website can follow here -->
     <div class="contact">
         <h2>Contact & Resources</h2>
         <p>Email: maxime.popoff@inria.fr</p>
         <a class="btn" href="https://github.com/inria-emeraude/syfala" target="_blank">GitHub Repository</a>
     </div>
+    
 
+
+
+
+    <div id="latency" class="modal">
+        <div class="modal__window">
+            <h2>Latency Comparison</h2>
+            <div class="modal_section">
+            <div>
+            <img src="images/latency.png" alt="Latency comparaison" >
+
+            <p>All results given here have been tested in our laboratory with the following parameters:<br>  
+                • Bela: sampling rate = 22.005 kHz, 2 block samples<br>  
+                • Speedgoat: sampling rate = 48 kHz, 2 block samples<br>  
+                • Polyphonic: sampling rate = 48 kHz, 1 block sample</p>
+                
+
+            </p> 
+        </div>
+        <div class="text-content_modal">
+            <p>The computational power of FPGA enables zero buffering and operates without an OS, eliminating the two main sources of audio system latency. 
+            </p>
+        <p>This allows the Polyphonic system to achieve ultra-low latency of just 2 samples for the entire digital processing. Combined with ultra-low latency ADC/DAC, it ensures the lowest possible latency based on the sampling rate.</p>
+        </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+
+      <div id="multichannel" class="modal">
+        <div class="modal__window">
+            <h2>toto multicanal</h2>
+            <img src="images/polyphonic_background.png" alt="Latency comparaison" >
+            <p>Hello there, I am a nice Modal Window.</p> 
+        </div>
+      </div>
+    </div>
+      
+    <div id="gui" class="modal">
+        <div class="modal__window">
+            <h2>Multiple ways to control your application.</h2>
+            <p>Syfala generates various controller interfaces and automatically configures them to suit your DSP needs based on the controller used in your Faust program. </p>
+            <div class="feature_modal">
+
+                <div class="feature-box_modal">
+                    <img src="images/GUI.png" alt="GUI">
+                    <h3>Graphical User Interface</h3>
+                    <p>A software interface generated using the Faust graphical system can be hosted on a computer connected via USB.</p>
+                </div>
+                <div class="feature-box_modal">
+                    <img src="images/midi.jpg" alt="Midi Controler">
+                    <h3>MIDI, Ethernet, OSC, ...</h3>
+                    <p>An embedded Linux system can run directly on the board, supporting various standard protocols and interfaces.</p>
+                </div>
+                <div class="feature-box_modal">
+                    <img src="images/controler.png" alt="Custom Controler">
+                    <h3>Custom Hardware Board</h3>
+                    <p> A tailored board can be designed to meet specific needs, enabling quick and easy control of desired parameters.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const openModalLinks = document.querySelectorAll(".open-modal");
+            const closeModalButtons = document.querySelectorAll(".modal-close");
+            const modals = document.querySelectorAll(".modal");
+        
+            // Open modal when clicking an image
+            openModalLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modalId = this.getAttribute("data-modal");
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.classList.add("active");
+        
+                        // Fix: Force browser repaint for proper rendering
+                        modal.style.display = "none";
+                        setTimeout(() => {
+                            modal.style.display = "flex";
+                        }, 10);
+                    }
+                });
+            });
+        
+            // Close modal when clicking outside the modal window
+            modals.forEach(modal => {
+                modal.addEventListener("click", function (event) {
+                    if (!event.target.closest(".modal-window")) {
+                        this.classList.remove("active");
+                    }
+                });
+            });
+        
+            // Close modal when clicking the close button
+            closeModalButtons.forEach(button => {
+                button.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    this.closest(".modal").classList.remove("active");
+                });
+            });
+        });
+        </script>
+        
+        
+        
 </body>
 </html>
