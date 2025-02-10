@@ -107,7 +107,6 @@
 
         .modal_section, .block-img {
             display: flex;
-            flex-direction: column;
             flex-wrap: wrap;
             gap: 2rem;
             justify-content: center;
@@ -115,16 +114,7 @@
             text-align: justify;
             margin-bottom: 100px;
         }
-        .block-img.reverse {
-        flex-direction: row-reverse;
-        display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-            text-align: justify;
-            margin-bottom: 100px;
-    }
+
         .block-img a {
             max-width: 40%;
         }
@@ -140,9 +130,13 @@
         }
 
         .block-img .text-content-left p {
-            max-width: 80%;
-            margin-left: auto;
-            margin-right: 0;
+            text-align: justify;
+        }
+        .text-content-left h2 {
+            text-align: end;
+        }
+        .text-content-left {
+            text-align: right;
         }
 
         .block-img h2 {
@@ -165,13 +159,12 @@
 
         .btn {
             display: inline-block;
-            padding: 15px 30px;
-            margin: 20px;
+            padding: 15px 15px;
             color: white;
             background: #585d61;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 20px;
+            font-size: 15px;
             transition: background 0.3s;
         }
 
@@ -246,6 +239,7 @@
         }
 
         @media (max-width: 768px) {
+ 
             .hero {
                 padding: 150px 0 15px;
             }
@@ -262,28 +256,38 @@
                 font-size: 32px;
             }
 
-            .feature-box, .block-img .text-content, .block-img .text-content-left, .feature-box_modal {
+            .feature-box, .text-content, .text-content-left, .feature-box_modal {
                 flex: 1 1 100%;
                 max-width: 100%;
-            }
-
-            .feature-box img, .feature-box_modal img, .block-img img {
-                max-height: 50vh;
+                text-align: left
             }
 
             .block-img {
                 flex-direction: column;
                 text-align: center;
+                width:100%;
+                gap: 0rem;
+
+            }
+            .block-img.reverse {
+                flex-direction: column-reverse;
+
+            }
+            .text-content-left h2, .text-content h2 {
+                text-align: justify;
             }
 
-            .block-img .text-content-left {
-                text-align: center;
-            }
+            .block-img a {
+            max-width: 100%;
+        }
 
-            .block-img img, .block-img .text-content, .block-img .text-content-left {
-                margin-bottom: 20px;
-            }
-            
+        .btn {
+            display: inline-block;
+            padding: 10px 10px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
         }
     </style>
 </head>
@@ -344,7 +348,7 @@
                     <a class="btn" href="https://inria-emeraude.github.io/syfala/" target="_blank">Syfala Repository</a>
                 </div>
             </div>
-            <div class="block-img">
+            <div class="block-img reverse">
                 <div class="text-content-left">
                     <h2>Faust Language</h2>
                     <p>Faust is a widely-used, accessible audio programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc.</p>
