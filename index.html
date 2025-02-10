@@ -288,18 +288,22 @@
             border-radius: 5px;
             font-size: 12px;
         }
-          .feature {
-        position: relative;
-        overflow-x: auto;
-        flex-wrap: nowrap;
+        .feature {
+        display: flex;
+        overflow-x: auto;  /* Enables horizontal scrolling */
         scroll-snap-type: x mandatory;
         padding: 20px;
+        gap: 0px; /* Adds spacing between items */
     }
 
     .feature-box {
-        flex: 0 0 90%;
-        max-width: 90%;
+        flex: 0 0 70%;  /* Make it smaller than full width */
+        max-width: 70%;
         scroll-snap-align: start;
+    }
+
+    .feature::-webkit-scrollbar {
+        display: none;  /* Hides scrollbar for a cleaner look */
     }
 
         }
