@@ -194,7 +194,13 @@
             text-align: center;
             padding: 60px;
         }
-
+        .learn_more{
+            background: #1a1a1a;
+            color: white;
+            text-align: left;
+            padding: 20px;
+            padding-left:60px
+        }
         .btn {
             display: inline-block;
             padding: 15px 15px;
@@ -314,6 +320,9 @@
                 text-align: justify;
             }
 
+            .block-img.no_link img{
+            max-width: 100%;
+        }
             .block-img a {
             max-width: 100%;
         }
@@ -526,10 +535,24 @@
         </div>
     </div>
 
+    <div class="learn_more">
+    <p>To learn more about:</p>  
+    <ul>  
+        <li><b>The Syfala toolchain and low latency:</b> <a href="https://zenodo.org/records/6798303" target="_blank">https://zenodo.org/records/6798303</a></li>  
+        <li><b>A multichannel application:</b> <a href="https://doi.org/10.5281/zenodo.11189100" target="_blank">https://doi.org/10.5281/zenodo.11189100</a></li>  
+        <li><b>The active noise control application:</b> <a href="https://dael.euracoustics.org/confs/landing_pages/fa2023/000718.html" target="_blank">https://dael.euracoustics.org/confs/landing_pages/fa2023/000718.html</a></li>  
+        <li><b>The hardware interfaces:</b> <a href="https://hal.science/hal-04714557" target="_blank">https://hal.science/hal-04714557</a></li>  
+    </ul>  
+    </div>
     <div class="contact">
+
         <h2>Contact & Resources</h2>
         <p>Email: maxime.popoff@inria.fr</p>
         <a class="btn" href="https://github.com/inria-emeraude/syfala" target="_blank">GitHub Repository</a>
+
+        
+
+        </p>
     </div>
 
     <div id="latency" class="modal">
@@ -578,7 +601,7 @@
 
                     <p><b>Ethernet-based audio interfaces</b> can scale more efficiently, but this approach is <b>expensive</b>, and desktop computers may limit computational performance.</p>
                     
-                    <p><b>FPGAs</b> offer a powerful solution with high computational efficiency< and flexible interfacing, enabling <b>high-channel audio processing without impacting latency</b>. Their inherent parallelism makes them ideal for spatial audio applications like Wave Field Synthesis (WFS), where independent computations occur on each channel. Additionally, their numerous GPIOs allow direct integration with multiple audio converters, making them a <b>scalable</b> and <b>efficient</b> alternative.</p>
+                    <p><b>FPGAs</b> offer a powerful solution with high computational efficiency and flexible interfacing, enabling <b>high-channel audio processing without impacting latency</b>. Their inherent parallelism makes them ideal for spatial audio applications like Wave Field Synthesis (WFS), where independent computations occur on each channel. Additionally, their numerous GPIOs allow direct integration with multiple audio converters, making them a <b>scalable</b> and <b>efficient</b> alternative.</p>
                     
 
                 </div>
