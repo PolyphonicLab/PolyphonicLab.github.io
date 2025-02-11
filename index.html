@@ -144,7 +144,7 @@
         .modal_section_image {
             display: flex;
             flex-wrap: nowrap;
-            max-height: 50vh;
+            height: 50vh;
             max-width: 100%;
             }
 
@@ -272,6 +272,9 @@
             padding: 10px;
             font-size: 20px;
         }
+        .modal_section_legend{
+            margin-left:10px
+        }
 
         @media (max-width: 768px) {
  
@@ -395,6 +398,7 @@
                 <div class="text-content-left">
                     <h2>Massive Multichannel</h2>
                     <p>Thanks to its high parallelism, FPGA enables massive, perfectly synchronized multichannel processing, handling thousands of channels in real-time.</p>
+                    <a href="#" class="open-modal" data-modal="multichannel">More...</a>
                 </div>
                 <a href="#" class="open-modal" data-modal="multichannel">
                     <img src="images/multichannel.jpg" alt="Multichannel application">
@@ -536,13 +540,21 @@
                 <div class="modal_section_image">
                     <img src="images/latency.png" alt="Latency comparaison">
                     <div class="modal_section_legend">
-                    <p>All results given here have been tested in our laboratory with the following parameters:<br>• Bela: sampling rate = 22.005 kHz, 2 block samples<br>• Speedgoat: sampling rate = 48 kHz, 2 block samples<br>• Polyphonic: sampling rate = 48 kHz, 1 block sample</p>
+                        <p>Detailed Latency Measurements:<br>  
+                            • <b>Bela</b>: Tested in our laboratory with sampling rate = 22.005 kHz, bitwidth = 16-bit, 2 block samples (maximum frequency tested).<br>  
+                            • <b>Speedgoat</b>: Tested in our laboratory with sampling rate = 48 kHz (maximum frequency tested), bitwidth = 16-bit, no reconstruction filter.<br>  
+                            • <b>Polyphonic</b>: Sampling rate = 768 kHz, bitwidth = 24-bit.<br>
+                            • <b>L-ISA and Stagetracker</b>: Manufacturer data.</p>
+                            
                 </div>
             </div>
 
                 <div class="text-content_modal">
-                    <p>The computational power of FPGA enables zero buffering and operates without an OS, eliminating the two main sources of audio system latency.</p>
-                    <p>This allows the Polyphonic system to achieve ultra-low latency of just 2 samples for the entire digital processing. Combined with ultra-low latency ADC/DAC, it ensures the lowest possible latency based on the sampling rate.</p>
+                    <p>The computational power of FPGA enables <b>zero buffering</b> and operates without an OS, eliminating the two main sources of audio system latency. </p> 
+
+<p>This allows the <b>Polyphonic</b> system to achieve <b>ultra-low latency of just 2 samples</b> for the entire digital processing. Combined with ultra-low latency ADC/DAC, it ensures the <b>lowest possible latency</b> based on the sampling rate.  </p>
+
+<p>Not only does this provide the <b>best possible latency</b> for a given sampling rate (Polyphonic systems can reach less than 200µs at 48kHz with reconstruction filters, compared to 500µs for Speedgoat without reconstruction filters), but it also supports <b>high sampling rates up to 768kHz</b>, further reducing latency for demanding audio applications.</p>
                 </div>
             </div>
         </div>
@@ -556,12 +568,19 @@
                 <div class="modal_section_image">
                     <img src="images/multichannel.jpg" alt="Multichannel capabilities">
                     <div class="modal_section_legend">
-                    <p>todo</p>
+                        <p>Using adapted protocols and interfaces, modern FPGAs can physically handle up to a <b>few thousand channels</b> on a single chip. The current <b>Polyphonic hardware</b> limitation is <b>512 channels</b> due to design choices but could be easily increased in the future.</p>
+                    </p>
                 </div>
             </div>
 
                 <div class="text-content_modal">
-                    <p>todo</p>
+                    <p>The most common method for real-time audio processing in large multichannel systems relies on a computer paired with a <b>multichannel audio interface</b>. While modern CPUs offer significant computational power, most USB audio interfaces are limited to <b>32 outputs</b> and are costly. Though parallelizing multiple interfaces is possible, surpassing <b>64 channels</b> remains challenging and can add significant <b>latency</b>.</p>
+
+                    <p><b>Ethernet-based audio interfaces</b> can scale more efficiently, but this approach is <b>expensive</b>, and desktop computers may limit computational performance.</p>
+                    
+                    <p><b>FPGAs</b> offer a powerful solution with high computational efficiency< and flexible interfacing, enabling <b>high-channel audio processing without impacting latency</b>. Their inherent parallelism makes them ideal for spatial audio applications like Wave Field Synthesis (WFS), where independent computations occur on each channel. Additionally, their numerous GPIOs allow direct integration with multiple audio converters, making them a <b>scalable</b> and <b>efficient</b> alternative.</p>
+                    
+
                 </div>
             </div>
         </div>
