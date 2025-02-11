@@ -71,7 +71,7 @@
             background: #EEEEEE;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             flex-wrap: nowrap;
             overflow-x: auto;
             overflow-y: auto;
@@ -98,6 +98,7 @@
         .feature-box {
             flex: 0 0 40%;
             max-width: 40%;
+
         }
 
         .image-placeholder, .feature-box_modal .image-placeholder {
@@ -119,28 +120,34 @@
             border-radius: 8px;
         }
 
-        .modal_section, .block-img {
+         .block-img {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
             justify-content: center;
             align-items: center;
             text-align: justify;
+            height:100%
         }
         .block-img {
             margin-bottom: 100px;
         }
-        .modal_section img{
-            width: 100%;
+        .modal_section{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            margin:30px;
         }
+    
+      
         @media (min-width: 768px) {
- 
-        .modal_section img{
-            width: 65%;
-        }
-        .modal_section_legend{
-            width:30%
-        }
+        .modal_section_image {
+            display: flex;
+            flex-wrap: nowrap;
+            max-height: 50vh;
+            max-width: 100%;
+            }
+
     }
         .block-img a {
             max-width: 40%;
@@ -150,7 +157,9 @@
             transform: scale(1.1);
             transition: transform 0.25s ease;
         }
-
+        .block-img.no_link img:hover {
+            transform: scale(1);
+        }
         .block-img .text-content, .block-img .text-content-left {
             flex: 1 1 50%;
             padding: 10px;
@@ -176,7 +185,9 @@
             font-size: 16px;
             color: #222222;
         }
-
+        .block-img.no_link img{
+            max-width: 40%;
+        }
         .contact {
             background: #1a1a1a;
             color: white;
@@ -232,6 +243,7 @@
             max-height: 80vh;
             overflow: hidden;
             font-size: 16px;
+
         }
 
         .modal__window h2 {
@@ -242,18 +254,18 @@
         }
 
         .modal__close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    color: black;
-    transition: color 0.3s;
-}
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: black;
+            transition: color 0.3s;
+        }
 
-.modal__close:hover {
-    color: red;
-}
+        .modal__close:hover {
+            color: red;
+        }
 
         .text-content_modal {
             flex: 1 1 60%;
@@ -294,7 +306,6 @@
             }
             .block-img.reverse {
                 flex-direction: column-reverse;
-
             }
             .text-content-left h2, .text-content h2 {
                 text-align: justify;
@@ -343,6 +354,12 @@
         overflow-x: auto;
             overflow-y: auto;
     }
+    .modal_section{
+            margin:5px;
+        }
+    .modal_section img{
+        width:100%
+    }
         }
     </style>
 </head>
@@ -380,7 +397,7 @@
                     <p>Thanks to its high parallelism, FPGA enables massive, perfectly synchronized multichannel processing, handling thousands of channels in real-time.</p>
                 </div>
                 <a href="#" class="open-modal" data-modal="multichannel">
-                    <img src="images/polyphonic_background.png" alt="Multichannel application">
+                    <img src="images/multichannel.jpg" alt="Multichannel application">
                 </a>
             </div>
         </div>
@@ -445,7 +462,7 @@
                     <p>• 32 input & output channels, expandable up to 512<br>• Powered by Xilinx Zynq FPGA<br>• Compact, like a small audio interface<br>• A true plug-and-play solution</p>
                 </div>
                 <div class="feature-box">
-                    <img src="images/TDM.jpg" alt="Frugal Interface">
+                    <img src="images/TDM.png" alt="Frugal Interface">
                     <h3>Frugal Interface</h3>
                     <p>• 32 output channels per board, expandable to 224.<br>• Cost-effective and easy to integrate.<br>• Compatible with Digilent’s Zybo FPGA board.</p>
                 </div>
@@ -461,13 +478,47 @@
     <div class="section_dark">
         <div class="section">
             <h2>Applications</h2>
-            <p>TODO</p>
+            <p>Our FPGA-based audio technology seamlessly integrates into a variety of cutting-edge applications.</p>
         </div>
     </div>
-
     <div class="section_light">
         <div class="section">
-            toto
+            <div class="block-img no_link">
+                <img src="images/polyphonic_background.png" alt="Syfala terminal">
+                <div class="text-content">
+                    <h2>Immersive Sound & Spatial Audio</h2>
+                    <p>Power 3D audio environments, such as Wave Field Synthesis (WFS) and Ambisonics, enabling realistic and immersive sound experiences.</p>
+                    <p>Deploy scalable multichannel systems (up to 512 channels), ideal for concert halls, VR/AR applications, and large-scale speaker arrays.</p>
+                    <p>Enhance interactive audio installations in museums, theaters, and interactive exhibits.</p>
+                </div>
+            </div>
+            
+            <div class="block-img reverse no_link">
+                <div class="text-content-left">
+                    <h2>Concert, Live Sound Processing & Music Production</h2>
+                    <p>Achieve ultra-low latency for live audio effects, real-time mixing, and dynamic sound synthesis.</p>
+                    <p>Leverage FAUST-based high-level DSP compilation, allowing musicians and sound engineers to develop custom DSP algorithms without hardware expertise.</p>
+                    <p>Seamlessly integrate into massive multichannel setups for high-fidelity spatial audio processing.</p>
+                </div>
+                <img src="images/polyphonic_background.png" alt="Faust Program">
+            </div> 
+            <div class="block-img no_link">
+                <img src="images/listening_room.jpg" alt="Listening room">
+                <div class="text-content">
+                    <h2>Active Noise Control & Acoustic Optimization</h2>
+                    <p>Implement real-time noise cancellation in environments such as smart offices, automotive cabins, and high-fidelity headphones.</p>
+                    <p>Integrate adaptive acoustic control for environments requiring sound shaping, such as conference rooms, recording studios, and high-end cinemas.</p>
+                </div>
+            </div>            
+            <div class="block-img no_link">
+                <div class="text-content-left">
+                    <h2>Acoustic Research and FPGA Audio Processing</h2>
+                    <p>Accelerate innovation in acoustic research with real-time testing of advanced DSP algorithms.</p>
+                    <p>Effortlessly program FPGAs for real-time audio DSP applications, including active acoustic control, noise cancellation, digital musical instruments, and spatial audio systems.  
+                    <p>Simplify FPGA-based development for high-performance sound processing, enabling groundbreaking advancements in professional audio.</p>
+                </div>
+                <img src="images/polyphonic_background.png" alt="Controllers">
+            </div>            
         </div>
     </div>
 
@@ -482,10 +533,13 @@
             <span class="modal__close">&times;</span> <!-- Closing cross -->
             <h2>Latency Comparison</h2>
             <div class="modal_section">
+                <div class="modal_section_image">
                     <img src="images/latency.png" alt="Latency comparaison">
                     <div class="modal_section_legend">
                     <p>All results given here have been tested in our laboratory with the following parameters:<br>• Bela: sampling rate = 22.005 kHz, 2 block samples<br>• Speedgoat: sampling rate = 48 kHz, 2 block samples<br>• Polyphonic: sampling rate = 48 kHz, 1 block sample</p>
                 </div>
+            </div>
+
                 <div class="text-content_modal">
                     <p>The computational power of FPGA enables zero buffering and operates without an OS, eliminating the two main sources of audio system latency.</p>
                     <p>This allows the Polyphonic system to achieve ultra-low latency of just 2 samples for the entire digital processing. Combined with ultra-low latency ADC/DAC, it ensures the lowest possible latency based on the sampling rate.</p>
@@ -497,9 +551,19 @@
     <div id="multichannel" class="modal">
         <div class="modal__window">
             <span class="modal__close">&times;</span> <!-- Closing cross -->
-            <h2>toto multicanal</h2>
-            <img src="images/polyphonic_background.png" alt="Latency comparaison">
-            <p>Hello there, I am a nice Modal Window.</p>
+            <h2>Multichannel capabilities</h2>
+            <div class="modal_section">
+                <div class="modal_section_image">
+                    <img src="images/multichannel.jpg" alt="Multichannel capabilities">
+                    <div class="modal_section_legend">
+                    <p>todo</p>
+                </div>
+            </div>
+
+                <div class="text-content_modal">
+                    <p>todo</p>
+                </div>
+            </div>
         </div>
     </div>
 
