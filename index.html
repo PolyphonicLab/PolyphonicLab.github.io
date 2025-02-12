@@ -11,39 +11,67 @@
             font-weight: 300;
             margin: 0;
             padding: 0;
-        }
-        .banner {
             background: black;
-            position: relative;
-            width: 100%;
-            height: auto; /* Adjust height as needed */
-            overflow: hidden;
+
+        }
+        .banner_back {
+            position: relative; /* Ensures elements inside are positioned relative to this */
+            width: 100%;        
+            background: url('images/banner_back.jpg') no-repeat center center;
+            background-size: cover; /* Ensures full coverage */
+            background-attachment: fixed; /* Makes it slide on scroll (parallax effect) */
+            z-index: -1;
         }
 
-        .banner img {
+        /* Adding an overlay for opacity effect */
+        .banner_back::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures image covers the banner */
-}
-        .hero {
-            background: black;
+            background: rgba(0, 0, 0, 0.8); 
+            z-index: -1;
+        }
+
+        .logo {
+            width: 80%;  /* Set banner width to 80% */
+            margin: 0 auto;  /* Center it */
             color: white;
-            text-align: center;
-            padding: 30px 5px 30px;
+        }
+
+        .logo img {
+            width: 100%;  /* Ensure the image scales within the banner */
+            height: auto; /* Maintain aspect ratio */
+            max-height:300px
+
+        }
+        .hero {
+            color: white;
+            width: 90%;  /* Set text container width to 80% */
+            margin: 20px auto;  /* Center it with spacing */
+            text-align: center; /* Center align text */
+            white-space: nowrap; /* Ensure text stays on one line */
+            overflow: hidden; /* Prevent wrapping */
+            margin-top:5px;
+            margin-bottom: 0px;
+            padding-bottom: 100px;
         }
 
         .hero h1 {
-            margin-top: 0;
-            font-size: 40px;
+            font-size: clamp(18px, 3.4vw, 24px);  /* Min: 18px, Flexible: 2.5vw, Max: 48px */
+            max-width: 100%;  /* Prevent overflow */
             font-weight: 100;
-            margin-bottom: 15px;
+            white-space: normal;
+            word-break: break-word; /* Ensures proper word breaking */
         }
 
         .hero p {
-            font-size: 22px;
-            max-width: 700px;
-            font-weight: 400;
-            margin: auto;
+            margin-top:40px;
+            font-size: clamp(12px, 3vw, 30px);  /* Min: 18px, Flexible: 2.5vw, Max: 48px */
+            font-weight: 500;
+            white-space: normal;
         }
 
         .section_dark {
@@ -287,21 +315,20 @@
         }
 
         @media (max-width: 768px) {
- 
-            .hero {
-                padding: 15px 0 15px;
-            }
 
             .hero h1 {
-                font-size: 36px;
+                margin-top:0;
+                font-size: 3.4vw; /* Increase size to keep readable */
+                white-space: normal; /* Allow wrapping */
             }
 
             .hero p {
-                font-size: 18px;
+                font-size: 4vw; /* Adjust paragraph size */
             }
 
+
             .section h2 {
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .feature-box, .text-content, .text-content-left, .feature-box_modal {
@@ -377,14 +404,15 @@
     </style>
 </head>
 <body>
-    <div class="banner">
-    <img src="images/banner.png" alt="banner">
-</div>
+    <div class="banner_back">
+    <div class="logo">
+    <img src="images/logo.svg" alt="logo">
+    </div>
     <div class="hero">
         <h1>Affordable and Scalable Audio Spatialization Solutions</h1>
-        <p>FPGA-powered real-time processing for unparalleled performances.</p>
+        <p>FPGA-powered real-time processing system for unparalleled audio performance designed for easy integration.</p>
     </div>
-
+    </div>
     <div class="section_dark">
         <div class="section">
             <h2>Experience Unmatched Performance</h2>
