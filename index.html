@@ -148,7 +148,13 @@
             height: 50vh;
             max-width: 100%;
             }
+        .block-img p {
+            max-width: 400px;
+        }
 
+        .text-content-left {
+            align-items: flex-end; /* Aligns text and links against the image */
+        }
     }
         .block-img a {
             max-width: 40%;
@@ -164,21 +170,14 @@
         .block-img .text-content, .block-img .text-content-left {
             flex: 1 1 50%;
             padding: 10px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .block-img .text-content-left p {
-            text-align: justify;
-        }
-        .text-content-left h2 {
-            text-align: end;
-        }
-        .text-content-left {
-            text-align: right;
-        }
 
         .block-img h2 {
             font-size: 40px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             font-weight: 300;
         }
 
@@ -252,9 +251,9 @@
             z-index: 10000;
             max-width: 80%;
             max-height: 80vh;
-            overflow: hidden;
             font-size: 16px;
-
+            overflow-x: auto;
+            overflow-y: auto;
         }
 
         .modal__window h2 {
@@ -322,7 +321,7 @@
                 flex-direction: column-reverse;
             }
             .text-content-left h2, .text-content h2 {
-                text-align: justify;
+                text-align: left;
             }
 
             .block-img.no_link img{
@@ -334,6 +333,7 @@
 
         .btn {
             display: inline-block;
+            align-self: flex-end;
             padding: 10px 10px;
             margin: 10px;
             border-radius: 5px;
@@ -366,10 +366,6 @@
     }
     .feature::-webkit-scrollbar {
         display: none;  /* Hides scrollbar for a cleaner look */
-    }
-    .modal__window {
-        overflow-x: auto;
-            overflow-y: auto;
     }
     .modal_section{
             margin:5px;
@@ -571,7 +567,7 @@
                         <p>Detailed Latency Measurements:<br>  
                             • <b>Bela</b>: Tested in our laboratory with sampling rate = 22.005 kHz, bitwidth = 16-bit, 2 block samples (maximum frequency tested).<br>  
                             • <b>Speedgoat</b>: Tested in our laboratory with sampling rate = 48 kHz (maximum frequency tested), bitwidth = 16-bit, no reconstruction filter.<br>  
-                            • <b>Polyphonic</b>: Sampling rate = 768 kHz, bitwidth = 24-bit.<br>
+                            • <b>Polyphonic</b>: Sampling rate = 768 kHz, bitwidth = 24-bit, with reconstruction filter.<br>
                             • <b>L-ISA and Stagetracker</b>: Manufacturer data.</p>
                             
                 </div>
