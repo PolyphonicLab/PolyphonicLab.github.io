@@ -14,26 +14,7 @@
             background: black;
 
         }
-        .banner_back {
-            position: relative; /* Ensures elements inside are positioned relative to this */
-            width: 100%;        
-            background: url('images/banner_back.jpg') no-repeat center center;
-            background-size: cover; /* Ensures full coverage */
-            background-attachment: fixed; /* Makes it slide on scroll (parallax effect) */
-            z-index: -1;
-        }
 
-        /* Adding an overlay for opacity effect */
-        .banner_back::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8); 
-            z-index: -1;
-        }
 
         .logo {
             width: 80%;  /* Set banner width to 80% */
@@ -56,6 +37,7 @@
             overflow: hidden; /* Prevent wrapping */
             margin-top:5px;
             margin-bottom: 0px;
+            padding-bottom: 100px;
         }
 
         .hero h1 {
