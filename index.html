@@ -175,7 +175,7 @@
             margin:30px;
         }
     
-      
+
         @media (min-width: 768px) {
         .modal_section_image {
             display: flex;
@@ -233,6 +233,11 @@
             color: white;
             font-weight: 500;
         }
+        .contact h1{
+            font-size: 20px;
+            font-weight: 300;
+
+        }
         .learn_more{
             background: #1a1a1a;
             color: white;
@@ -240,6 +245,48 @@
             padding: 20px;
             padding-left:60px
         }
+        .learn_more a {
+            color: white;
+            font-weight: 500;
+        }
+
+        .logo-banner {
+            width: 100%;
+            background: #1a1a1a;
+            color: white;    
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+              /* Logo Container */
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
+            width: 80%; /* Adjust banner width */
+            gap: 20px; /* Space between logos */
+        }
+
+        /* Logos */
+        .logo-container img {
+            max-width: 200px; /* Set max width for logos */
+            height: auto;
+        }
+        .logo-banner p{
+            font-weight: 200;
+            text-align: center;
+            width:80%;
+            margin-top:40px;
+            margin-bottom: 0px;
+            font-size: 20px;
+        }
+        .logo-banner a {
+            color: white;
+            font-weight: 500;
+        }
+
         .btn {
             align-self:center;
             display: inline-block;
@@ -408,6 +455,14 @@
     .modal_section img{
         width:100%
     }
+    .logo-container {
+        flex-wrap: wrap; /* Allows wrapping on small screens */
+        justify-content: center;
+    }
+    
+    .logo-container img {
+        max-width: 150px; /* Reduce logo size for mobile */
+    }
         }
     </style>
 </head>
@@ -575,10 +630,32 @@
         <li><b>The active noise control application:</b> <a href="https://dael.euracoustics.org/confs/landing_pages/fa2023/000718.html" target="_blank">https://dael.euracoustics.org/confs/landing_pages/fa2023/000718.html</a></li>  
         <li><b>The hardware interfaces:</b> <a href="https://hal.science/hal-04714557" target="_blank">https://hal.science/hal-04714557</a></li>  
     </ul>  
+
+</div>
+    <div class="logo-banner">
+        <p>
+            This project is funded by the 
+            <a href="https://www.inriastartupstudio.fr/">Inria Startup Studio</a> 
+            and was born from the Syfala project, a research initiative led by the 
+            <a href="https://team.inria.fr/emeraude/">Emeraude Team</a> 
+            in collaboration with the <a href="https://www.citi-lab.fr/">Center of Innovation in Telecommunication and Integration of Service (CITI)</a> at INSA-Lyon, 
+            and  
+            <a href="https://www.grame.fr/">GRAME – Centre National de Création Musicale (CNCM)</a>.
+          </p>
+    <div class="logo-container">
+        <img src="images/citi_lab_logo_white.png" alt="Logo CITI Lab">
+        <img src="images/logo_insa_white.png" alt="Logo INSA">
+        <img src="images/grame_logo_white.png" alt="Logo Grame">
+        <img src="images/inr_logo_white.png" alt="Logo Inria">
+        <img src="images/logo_ISS_white.png" alt="Logo ISS">
     </div>
+</div>
+
+
     <div class="contact">
 
         <h2>Contact</h2>
+        <h1>Maxime Popoff</h1>
         <p>Email: <a href="mailto:maxime.popoff@inria.fr">maxime.popoff@inria.fr</a></p>
 
 
