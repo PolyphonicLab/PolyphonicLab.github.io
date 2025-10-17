@@ -69,7 +69,7 @@
         .hero h1 {
             font-size: clamp(18px, 3.4vw, 24px);  /* Min: 18px, Flexible: 2.5vw, Max: 48px */
             max-width: 100%;  /* Prevent overflow */
-            font-weight: 100;
+            font-weight: 200;
             white-space: normal;
             word-break: break-word; /* Ensures proper word breaking */
         }
@@ -95,22 +95,28 @@
             padding: 80px 20px;
             max-width: 1100px;
             margin: auto;
-            text-align: center;
+            text-align: justify;
+            font-size: 20px;
+            font-weight: 200;
+
         }
 
-        .section h2 {
-            font-size: 42px;
+        .board_section h2 {
+            font-size: 36px;
             margin-bottom: 30px;
         }
 
-        .feature_modal, .feature {
-            background: #EEEEEE;
-            display: flex;
-            justify-content: space-between;
+        .feature_modal, .board_section {
+            max-width: 1800px;
+           margin: auto;
+
             align-items: center;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            overflow-y: auto;
+            justify-content: center;
+            background: #FFFFFF;
+            display: flex;
+            flex-wrap: wrap;
+            width:100%
+
         }
 
         .feature_modal {
@@ -118,10 +124,11 @@
             max-height: 80vh;
         }
 
-        .feature-box_modal, .feature-box {
+        .feature-box_modal, .board_section-box {
             padding: 30px;
             margin: 10px 0;
             border-radius: 10px;
+            width: 400px;
             text-align: left;
         }
 
@@ -131,11 +138,6 @@
             max-height: 50vh;
         }
 
-        .feature-box {
-            flex: 0 0 40%;
-            max-width: 40%;
-
-        }
 
         .image-placeholder, .feature-box_modal .image-placeholder {
             background: #AAAAAA;
@@ -148,11 +150,10 @@
             font-size: 18px;
         }
 
-        .feature-box_modal img, .feature-box img, .block-img img {
+        .feature-box_modal img, .board_section-box img, .block-img img {
             max-width: 100%;
-            max-height: 35vh;
+            max-height: 45vh;
             height: auto;
-            object-fit: contain;
             border-radius: 8px;
         }
 
@@ -171,7 +172,7 @@
         .modal_section{
             display: flex;
             flex-wrap: wrap;
-            justify-content: start;
+            justify-content: center;
             margin:30px;
         }
     
@@ -183,9 +184,7 @@
             height: 50vh;
             max-width: 100%;
             }
-        .block-img p {
-            max-width: 400px;
-        }
+    
 
         .text-content-left {
             align-items: flex-end; /* Aligns text and links against the image */
@@ -216,8 +215,16 @@
             font-weight: 300;
         }
 
+
+        .generic h2 {
+            font-size: 40px;
+            margin-bottom: 5px;
+            margin-top:-100px;
+            font-weight: 300;
+        }
+
         .block-img p {
-            font-size: 16px;
+            font-size: 18px;
             color: #222222;
         }
         .block-img.no_link img{
@@ -238,6 +245,40 @@
             font-weight: 300;
 
         }
+        .formcontainer {
+            max-width: 100%;
+            display: flex;
+            justify-content: center; /* horizontal centering */
+            }
+        .contact form {
+
+            background-color: #fff;
+            padding: 10px 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+
+        }
+
+        .contact h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+
+        }
+
+        .contact input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+
         .learn_more{
             background: #1a1a1a;
             color: white;
@@ -286,22 +327,41 @@
             color: white;
             font-weight: 500;
         }
+.btn {
+    align-self: center;
+    display: inline-block;
+    padding: 15px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 300;
+    margin:10px;
+    transition: background 0.3s, transform 0.2s;
+}
 
-        .btn {
-            align-self:center;
-            display: inline-block;
-            padding: 15px 15px;
-            color: white;
-            background: #585d61;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 15px;
-            transition: background 0.3s;
-        }
+/* Add a slight "lift" effect on hover for all buttons */
+.btn:hover {
+    transform: translateY(-2px);
+}
 
-        .btn:hover {
-            background: #7a8085;
-        }
+/* Primary button */
+.btn-secondary {
+    background: #585d61;
+}
+
+.btn-secondary:hover {
+    background: #7a8085;
+}
+
+/* Secondary button (purple variant) */
+.btn-primary {
+    background: #8A2BE2;
+}
+
+.btn-primary:hover {
+    background: #9B47E8; /* a slightly lighter purple for hover */
+}
 
         .modal {
             display: none;
@@ -361,9 +421,10 @@
         }
 
         .text-content_modal {
-            flex: 1 1 60%;
+            flex: 1 1 40%;
             padding: 10px;
-            font-size: 20px;
+            font-size: 18px;
+
         }
         .modal_section_legend{
             margin-left:10px
@@ -386,7 +447,7 @@
                 font-size: 28px;
             }
 
-            .feature-box, .text-content, .text-content-left, .feature-box_modal {
+            .board_section-box, .text-content, .text-content-left, .feature-box_modal {
                 flex: 1 1 100%;
                 max-width: 100%;
                 text-align: left
@@ -421,7 +482,7 @@
             border-radius: 5px;
             font-size: 12px;
         }
-        .feature, .feature_modal{
+         .feature_modal{
         display: flex;
         overflow-x: auto;  /* Enables horizontal scrolling */
         scroll-snap-type: x mandatory;
@@ -437,7 +498,7 @@
         margin:0;
         padding: 0;
     }
-    .feature-box, .feature-box_modal{
+    .board_section-box, .feature-box_modal{
         flex: 0 0 80%;  /* Make it smaller than full width */
         max-width: 80%;
         scroll-snap-align: start;
@@ -445,9 +506,6 @@
     }
     .feature-box_modal{
         padding-top: 0; /* Ensures no inner spacing */
-    }
-    .feature::-webkit-scrollbar {
-        display: none;  /* Hides scrollbar for a cleaner look */
     }
     .modal_section{
             margin:5px;
@@ -463,124 +521,270 @@
     .logo-container img {
         max-width: 150px; /* Reduce logo size for mobile */
     }
-        }
+        } /* end of smartphone screen size condition */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.carousel-track {
+  display: flex;
+  gap: -5px; /* images slightly touch */
+  animation: scroll 20s linear infinite;
+}
+
+.carousel-track a {
+  flex: 0 0 auto;
+}
+
+
+/* Arrows */
+.arrowright {
+  margin-left:95%;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 80px;
+  cursor: pointer;
+  z-index: 999;
+transform: translateY(-350px);
+}
+
+.arrowright:hover {
+      animation-play-state: paused;
+}
+
+.carousel-item {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: 550px;
+  margin-right: -5px; /* slightly touch other images */
+  overflow: hidden;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.05); /* optional zoom effect */
+}
+
+/* Overlay */
+.overlay {
+    position:absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* black gradient */
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.carousel-item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.overlay p {
+  margin: 2px 0 0;
+  font-size: 16px;
+}
+
     </style>
 </head>
 <body>
+
+
+    
     <div class="banner_back">
     <div class="logo">
     <img src="images/logo.svg" alt="logo">
     </div>
     <div class="hero">
-        <h1>Affordable and Scalable Audio Spatialization Solutions</h1>
-        <p>FPGA-powered real-time processing system for unparalleled audio performance designed for easy integration.</p>
+        <h1>Turning Audio Concepts into Hardware Reality</h1>
     </div>
     </div>
     <div class="section_dark">
         <div class="section">
-            <h2>Experience Unmatched Performance</h2>
-            <p>Polyphonic unlocks high-performance, low-latency multichannel audio processing, making FPGA technology accessible like never before. By bridging the gap between raw computing power and creative applications, our platform simplifies the development of spatial and interactive audio systems. 
-                </p>
+<h2>From Idea to Prototype: Pushing Audio Innovation Further with FPGA Technology</h2>
+<p>
+We transform advanced audio algorithms into real-time embedded hardware. 
+With rapid FPGA-based prototyping and integrated design tools, we bridge the gap between research and production, delivering next-generation sound experiences faster than ever. 
+This makes ultra-low-latency, high-channel-count audio systems accessible for engineers, researchers, and creators alike.
+</p>
+                    <a class="btn btn-primary" href="#techno" target="_blank">See Our Technology</a>
+                    <a class="btn btn-secondary" href="#contact" target="_blank">Contact Us</a>
+
+
+        </div>
+    </div>
+
+<div class="section_light">
+    <div class="section">
+        <div class="block-img">
+            <a href="#" class="open-modal" data-modal="latency">
+                <img src="images/latency.png" alt="Latency comparaison">
+            </a>
+            <div class="text-content">
+                <h2>The Bottlenecks in Real-Time Multichannel Audio</h2>
+<p>
+    Real-time, multichannel audio systems are pushing the limits of traditional CPUs and DSPs. 
+    High channel counts and ultra-low-latency requirements make immersive sound experiences difficult to achieve, especially in live or interactive settings.
+   Even the best low-latency audio setups struggle to achieve sub-millisecond performance, and surpassing a few hundred channels is challenging and costly.
+</p>
+            </div>
+        </div>
+        <div class="block-img no_link reverse">
+            <div class="text-content-left">
+                <h2>FPGA Innovation for High-Channel, Low-Latency Audio</h2>
+
+<p>
+FPGA technology overcomes these limitations through fully parallel, deterministic, and ultra-low-latency computation. 
+Operating without an operating system and with zero buffering, FPGAs eliminate the main sources of delay found in traditional architectures. 
+This enables unprecedented performance (down to a single sample of latency) while supporting high sampling rates up to 768 kHz for demanding professional applications. 
+Their inherent parallelism makes them ideal for spatial audio systems such as Wave Field Synthesis, where independent computations must occur across hundreds of channels simultaneously. 
+With extensive GPIOs and flexible interfacing, FPGAs provide scalable, efficient, and high-channel-count processing solutions.
+</p>
+            </div>
+                <img src="images/fpga.JPG" alt="FPGA">
+
+        </div>
+
+
+    <p>
+Despite their potential, FPGAs have long remained out of reach for most audio developers due to their programming complexity, a gap that Polyphonic is closing.
+Leveraging ultra-low latency audio converters and FPGA processing, Polyphonic’s platform achieves an impressive 11μs latency from analog input to analog output and handled hudreds of intput and outputs.
+</p>
+    </div>
+
+</div>
+
+    <div class="section_dark" id="techno">
+        <div class="section">
+            <h2>Accelerating Innovation Through Exclusive FPGA Technology</h2>
+            <p>Our proprietary compiler and custom prototyping platform allow us to turn complex audio algorithms into real-time embedded systems in record time.
+The result: rapid prototyping, ultra-low latency, and efficient deployment for research and professional audio projects alike.</p>
         </div>
     </div>
 
     <div class="section_light">
         <div class="section">
-            <div class="block-img">
-                <a href="#" class="open-modal" data-modal="latency">
-                    <img src="images/latency.png" alt="Latency comparaison">
-                </a>
-                <div class="text-content">
-                    <h2>Ultra Low Audio Latency</h2>
-                    <p>Current low-latency audio systems struggle to reach sub-millisecond levels. Leveraging ultra-low latency audio converters and FPGA processing, Polyphonic’s platform achieves an impressive 11μs latency from analog input to analog output.</p>
-                    <a href="#" class="open-modal" data-modal="latency">More...</a>
-                </div>
-            </div>
-            <div class="block-img reverse">
-                <div class="text-content-left">
-                    <h2>Massive Multichannel</h2>
-                    <p>Thanks to its high parallelism, FPGA enables massive, perfectly synchronized multichannel processing, handling thousands of channels in real-time.</p>
-                    <a href="#" class="open-modal" data-modal="multichannel">More...</a>
-                </div>
-                <a href="#" class="open-modal" data-modal="multichannel">
-                    <img src="images/multichannel.jpg" alt="Multichannel application">
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="section_dark">
-        <div class="section">
-            <h2>Simple and Efficient FPGA Audio DSP Programming</h2>
-            <p>Programming FPGA-based DSPs has never been easier with the Syfala compiler and the Faust language.</p>
-        </div>
-    </div>
-
-    <div class="section_light">
-        <div class="section">
-            <div class="block-img">
-                <a href="https://inria-emeraude.github.io/syfala/">
+            <div class="block-img no_link">
                     <img src="images/compiler_log.png" alt="Syfala terminal">
-                </a>
                 <div class="text-content">
-                    <h2>The Syfala Compiler</h2>
-                    <p>Syfala allows easy programming of FPGA systems using the high-level Faust programming language or C++.</p>
-                    <p>• Compiles Faust DSP code to FPGA.<br>• Supports ultra-low latency audio processing.<br>• Intuitive and easy-to-use command-line interface.</p>
-                    <a class="btn" href="https://inria-emeraude.github.io/syfala/" target="_blank">Syfala Repository</a>
+                    <h2>A Compiler Built for Sound</h2>
+                  <p>  At the heart of Polyphonic lies a custom compiler that turns high-level C++ or FAUST audio code into efficient FPGA implementations. 
+This tool abstracts the complexity of hardware description languages, enabling designers to design, test, and deploy real-time audio systems directly from familiar code. 
+By automating the synthesis, interfacing, and optimization processes, Polyphonic allows us to rapidly develop proofs-of-concept for FPGA.
+</p>
+                    <a class="btn btn-primary" href="https://inria-emeraude.github.io/syfala/" target="_blank">Syfala Repository</a>
                 </div>
             </div>
-            <div class="block-img reverse">
+            <div class="block-img no_link reverse">
+
+
+
+
+
                 <div class="text-content-left">
-                    <h2>Faust Language</h2>
-                    <p>Faust is a widely-used, accessible audio programming language for sound synthesis and audio processing with a strong focus on the design of synthesizers, musical instruments, audio effects, etc.</p>
-                    <a class="btn" href="https://faust.grame.fr/" target="_blank">Faust Website</a>
+                <h2>A Board Designed for Speed and Flexibility</h2>
+<p>
+Our custom FPGA development board is designed specifically for audio applications, combining high-speed I/O, precision converters, and flexible connectivity. 
+It integrates seamlessly with our software environment, allowing instant deployment and testing of real-time signal processing algorithms. 
+With expandable interfaces, synchronized clocks, and direct access to multiple audio converters, the platform supports both quick prototyping and complex multichannel systems.
+</p>
                 </div>
-                <a href="https://faust.grame.fr/">
-                    <img src="images/faust.png" alt="Faust Program">
-                </a>
-            </div>
-            <div class="block-img">
-                <a href="#" class="open-modal" data-modal="gui">
-                    <img src="images/popophone.jpg" alt="Controllers">
-                </a>
-                <div class="text-content">
-                    <h2>Keep Control</h2>
-                    <p>Control your audio program with an auto-generated GUI, a physical controller, or even an embedded Linux to seamlessly integrate Ethernet, MIDI, and more.</p>
-                    <a href="#" class="open-modal" data-modal="gui">More...</a>
-                </div>
+                <img src="images/devboard.jpg" alt="Polyphonic development board">
+                
             </div>
         </div>
     </div>
 
     <div class="section_dark">
         <div class="section">
-            <h2>Multichannel Low Latency Audio Interfaces</h2>
-            <p>Polyphonic ensures seamless integration with audio systems through custom audio interfaces.</p>
+            <h2>Real Projects, Real-Time Performance</h2>
+            <p>From immersive spatial audio installations to multi-channel live systems, Polyphonic brings complex audio concepts to life. 
+Our FPGA-based prototyping tools enable rapid development and testing, turning ideas into working solutions faster than ever.
+</p>
         </div>
     </div>
 
     <div class="section_light">
+<div class="carousel-container" id="carouselContain">
+  <div class="carousel-track" id="carouselTrack">
+    <a  class="carousel-item"><img src="images/project1.jpg" alt="project 1"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project2.jpg" alt="project 2"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project3.jpg" alt="project 3"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project4.jpg" alt="project 4"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project5.jpg" alt="project 5"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project6.jpg" alt="project 6"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project1.jpg" alt="project 1"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project2.jpg" alt="project 2"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project3.jpg" alt="project 3"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project4.jpg" alt="project 4"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project5.jpg" alt="project 5"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project6.jpg" alt="project 6"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+  </div>
+      <button class="arrowright">▶</button>
+</div>
+
         <div class="section">
-            <div class="feature">
-                <div class="feature-box">
+                <div class="generic">
+            <h2>Custom Hardware Platforms</h2>
+            <p>These custom-designed PCBs, created by us to meet the demands of advanced audio projects, can also be tailored and developed for your specific application.</p>
+                </div>
+        </div>
+
+            <div class="board_section">
+                <div class="board_section-box">
                     <img src="images/PCB_new_top.png" alt="Polyphonic board">
                     <h3>Polyphonic Standalone Board</h3>
                     <p>• 32 input & output channels, expandable up to 512<br>• Powered by Xilinx Zynq FPGA<br>• Compact, like a small audio interface<br>• A true plug-and-play solution</p>
                 </div>
-                <div class="feature-box">
+                <div class="board_section-box">
                     <img src="images/TDM.png" alt="Frugal Interface">
                     <h3>Frugal Interface</h3>
-                    <p>• 32 output channels per board, expandable to 224.<br>• Cost-effective and easy to integrate.<br>• Compatible with Digilent’s Zybo FPGA board.</p>
+                    <p>• 32 amplified output channels per board, expandable to 224.<br>• Cost-effective and easy to integrate.<br>• Compatible with Digilent’s Zybo FPGA board.</p>
                 </div>
-                <div class="feature-box">
+                <div class="board_section-box">
                     <img src="images/ull.png" alt="Ultra Low Latency Interface">
                     <h3>Ultra Low Latency Interface</h3>
                     <p>• 32 input & output channels, expandable to 512.<br>• 10μs latency at 768kHz.<br>• Xilinx/AMD Ultrascale+ FPGA compatible.</p>
                 </div>
+                <div class="board_section-box">
+                    <img src="images/theline.png" alt="Beamforming module">
+                    <h3>Beamforming Module</h3>
+<p>
+• 8-channel amplified speaker board<br>
+• Daisy-chainable up to 32 boards (256 channels)<br>
+• Designed for high-density beamforming and Wave Field Synthesis (WFS) applications
+</p>
+                </div>
+                <div class="board_section-box">
+                    <img src="images/controler.png" alt="Custom SPI Controler">
+                    <h3>Custom Hardware Controler</h3>
+                     <p>A control board designed to be modular, it allows the choice between sliders, knobs, and buttons for eight controls.</p>             </div>
             </div>
-        </div>
     </div>
-
+<!-- 
     <div class="section_dark">
         <div class="section">
             <h2>Applications</h2>
@@ -621,6 +825,57 @@
                 <img src="images/polyphonic_background.png" alt="Acoustic Research">
             </div>            
         </div>
+    </div> -->
+
+
+
+
+    <div class="contact" id="contact">
+
+        <h2>Contact</h2>
+        <h1>Maxime Popoff</h1>
+        <p>Email: <a href="mailto:maxime.popoff@inria.fr">maxime.popoff@inria.fr</a></p>
+  <div class="formcontainer">
+<form id="contact-form">
+            <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+        <button type="submit">Send Message</button>
+        
+    </form>
+
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS
+    emailjs.init('En6HhpH5UIQtNDQp_');
+
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_osowhtb', 'template_we813cn', this)
+            .then(() => {
+                alert('Message sent successfully!');
+                form.reset();
+            }, (error) => {
+                alert('Failed to send message: ' + JSON.stringify(error));
+            });
+    });
+</script>
+
+            </div>
+
+
     </div>
 
     <div class="learn_more">
@@ -653,17 +908,6 @@
 </div>
 
 
-    <div class="contact">
-
-        <h2>Contact</h2>
-        <h1>Maxime Popoff</h1>
-        <p>Email: <a href="mailto:maxime.popoff@inria.fr">maxime.popoff@inria.fr</a></p>
-
-
-        
-
-        </p>
-    </div>
 
     <div id="latency" class="modal">
         <div class="modal__window">
@@ -672,8 +916,9 @@
             <div class="modal_section">
                 <div class="modal_section_image">
                     <img src="images/latency.png" alt="Latency comparison ">
-                    <div class="modal_section_legend">
-                        <p>Detailed Latency Measurements:<br>  
+                    </div>
+                <div class="text-content_modal">
+                                          <p>Detailed Latency Measurements:<br>  
                             • <b>Bela</b>: Tested with sampling rate = 22.005 kHz, bitwidth = 16-bit, 2 block samples <a href="https://learn.bela.io/tutorials/c-plus-plus-for-real-time-audio-programming/latency/">here</a>. Lower latency could be expected with a higher sampling rate.<br>  
                             • <b>Speedgoat</b>: Tested in our laboratory with sampling rate = 48 kHz (maximum frequency tested), bitwidth = 16-bit, no reconstruction filter.<br>  
                             • <b>Polyphonic</b>: Sampling rate = 768 kHz, bitwidth = 24-bit, with reconstruction filter.<br>
@@ -682,46 +927,39 @@
                 </div>
             </div>
 
-                <div class="text-content_modal">
-                    <p>The computational power of FPGA enables <b>zero buffering</b> and operates without an OS, eliminating the two main sources of audio system latency. </p> 
-
-<p>This allows the <b>Polyphonic</b> system to achieve <b>ultra-low latency of just 2 samples</b> for the entire digital processing. Combined with ultra-low latency ADC/DAC, it ensures the <b>lowest possible latency</b> based on the sampling rate.  </p>
-
-<p>Not only does this provide the <b>best possible latency</b> for a given sampling rate (Polyphonic systems can reach less than 200µs at 48kHz with reconstruction filters, compared to 500µs for Speedgoat without reconstruction filters), but it also supports <b>high sampling rates up to 768kHz</b>, further reducing latency for demanding audio applications.</p>
-                </div>
-            </div>
         </div>
     </div>
 
     <div id="multichannel" class="modal">
         <div class="modal__window">
             <span class="modal__close">&times;</span> <!-- Closing cross -->
-            <h2>Multichannel Capabilities</h2>
             <div class="modal_section">
                 <div class="modal_section_image">
                     <img src="images/multichannel.jpg" alt="Multichannel capabilities">
-                    <div class="modal_section_legend">
-                        <p>Using adapted protocols and interfaces, modern FPGAs can physically handle up to a <b>few thousand channels</b> on a single chip. The current <b>Polyphonic hardware</b> limitation is <b>512 channels</b> due to design choices but could be easily increased in the future.</p>
-                    </p>
-                </div>
             </div>
-
                 <div class="text-content_modal">
-                    <p>The most common method for real-time audio processing in large multichannel systems relies on a computer paired with a <b>multichannel audio interface</b>. While modern CPUs offer significant computational power, most USB audio interfaces are limited to <b>32 outputs</b> and are costly. Though parallelizing multiple interfaces is possible, surpassing <b>64 channels</b> remains challenging and can add significant <b>latency</b>.</p>
-
-                    <p><b>Ethernet-based audio interfaces</b> can scale more efficiently, but this approach is <b>expensive</b>, and desktop computers may limit computational performance.</p>
-                    
-                    <p><b>FPGAs</b> offer a powerful solution with high computational efficiency and flexible interfacing, enabling <b>high-channel audio processing without impacting latency</b>. Their inherent parallelism makes them ideal for spatial audio applications like Wave Field Synthesis (WFS), where independent computations occur on each channel. Additionally, their numerous GPIOs allow direct integration with multiple audio converters, making them a <b>scalable</b> and <b>efficient</b> alternative.</p>
-                    
-
+                    <p>Zynq 7020 FPGA</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="gui" class="modal">
+        <div id="devboard" class="modal">
         <div class="modal__window">
             <span class="modal__close">&times;</span> <!-- Closing cross -->
+            <div class="modal_section">
+                <div class="modal_section_image">
+                    <img src="images/devboard.jpg" alt="Polyphonic development board">
+            </div>
+                <div class="text-content_modal">
+                    <p>Polyphonic Main Development Board</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="gui" class="modal">
+        <div class="modal__window">
+            <span class="modal__close">&times;</span> 
             <h2>Multiple ways to control your application.</h2>
             <p>Syfala generates various controller interfaces and automatically configures them to suit your DSP needs based on the controller used in your Faust program.</p>
             <div class="feature_modal">
@@ -740,9 +978,14 @@
                     <h3>Custom Hardware Board</h3>
                     <p>A tailored board can be designed to meet specific needs, enabling quick and easy control of desired parameters.</p>
                 </div>
+                <div class="feature-box_modal">
+                    <img src="images/controler.png" alt="Custom Controler">
+                    <h3>Custom Hardware Board</h3>
+                    <p>A tailored board can be designed to meet specific needs, enabling quick and easy control of desired parameters.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -780,6 +1023,38 @@
                 });
             });
         });
+
+const track = document.getElementById('carouselTrack');
+const container = document.getElementById('carouselContain');
+
+let scrollSpeed = 4; // pixels per frame
+let scrollPos = 0;
+
+// Duplicate track width for infinite effect
+const trackWidth = track.scrollWidth / 2;
+
+function autoScroll() {
+  scrollPos += scrollSpeed;
+  if (scrollPos >= trackWidth) scrollPos = 0; // loop back
+  track.style.transform = `translateX(-${scrollPos}px)`;
+  requestAnimationFrame(autoScroll);
+}
+
+autoScroll();
+
+// Pause on hover
+container.addEventListener('mouseenter', () => scrollSpeed = 0);
+container.addEventListener('mouseleave', () => scrollSpeed = 4);
+
+// Arrow click: nudge by fixed distance
+const nudgeDistance = 600; // px per click
+
+
+document.querySelector('.arrowright').addEventListener('click', () => {
+  scrollPos += nudgeDistance;
+  if (scrollPos >= trackWidth) scrollPos -= trackWidth;
+});
     </script>
+
 </body>
 </html>
