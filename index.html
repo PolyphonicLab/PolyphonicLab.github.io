@@ -1054,15 +1054,15 @@ document.querySelector('.arrowright').addEventListener('click', () => {
   if (scrollPos >= trackWidth) scrollPos -= trackWidth;
 });
 
-track.addEventListener('touchstart', e => {
-  startX = e.touches[0].pageX - track.offsetLeft;
-  scrollLeft = track.scrollLeft;
+container.addEventListener('touchstart', e => {
+  startX = e.touches[0].pageX - container.offsetLeft;
+  scrollLeft = container.scrollLeft;
 });
 
-track.addEventListener('touchmove', e => {
-  const x = e.touches[0].pageX - track.offsetLeft;
+container.addEventListener('touchmove', e => {
+  const x = e.touches[0].pageX - container.offsetLeft;
   const walk = (x - startX) * 1.2;
-  track.scrollLeft = scrollLeft - walk;
+  container.scrollLeft = scrollLeft - walk;
 });
     </script>
 
