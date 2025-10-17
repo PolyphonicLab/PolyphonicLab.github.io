@@ -522,11 +522,6 @@
     }
         } /* end of smartphone screen size condition */
 .carousel-container {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth; /* smooth manual scrolling */
-  -webkit-overflow-scrolling: touch; /* smooth on iOS */
-  display: flex;
     aspect-ratio: 4 / 1;
   width: 100%;
   min-height:300px;
@@ -555,6 +550,7 @@
   font-size: 80px;
   cursor: pointer;
   z-index: 999;
+transform: translateY(-100px);
 }
 
 .arrowright:hover {
@@ -1056,6 +1052,17 @@ const nudgeDistance = 600; // px per click
 document.querySelector('.arrowright').addEventListener('click', () => {
   scrollPos += nudgeDistance;
   if (scrollPos >= trackWidth) scrollPos -= trackWidth;
+});
+
+track.addEventListener('touchstart', e => {
+  startX = e.touches[0].pageX - track.offsetLeft;
+  scrollLeft = track.scrollLeft;
+});
+
+track.addEventListener('touchmove', e => {
+  const x = e.touches[0].pageX - track.offsetLeft;
+  const walk = (x - startX) * 1.2;
+  track.scrollLeft = scrollLeft - walk;
 });
     </script>
 
