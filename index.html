@@ -189,6 +189,22 @@
         .text-content-left {
             align-items: flex-end; /* Aligns text and links against the image */
         }
+            /* Arrows */
+.arrowright {
+    position:absolute;
+  right:10px;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 80px;
+  cursor: pointer;
+  z-index: 999;
+transform: translateY(-100px);
+}
+
+.arrowright:hover {
+      animation-play-state: paused;
+}
     }
         .block-img a {
             max-width: 40%;
@@ -520,7 +536,10 @@
     .logo-container img {
         max-width: 150px; /* Reduce logo size for mobile */
     }
-        } /* end of smartphone screen size condition */
+
+
+
+        } /* end of NOT smartphone screen size condition */
 .carousel-container {
     aspect-ratio: 4 / 1;
   width: 100%;
@@ -540,22 +559,6 @@
 
 
 
-/* Arrows */
-.arrowright {
-    position:absolute;
-  right:10px;
-  color: white;
-  background: none;
-  border: none;
-  font-size: 80px;
-  cursor: pointer;
-  z-index: 999;
-transform: translateY(-100px);
-}
-
-.arrowright:hover {
-      animation-play-state: paused;
-}
 
 .carousel-item {
   position: relative;
