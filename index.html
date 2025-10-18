@@ -189,22 +189,7 @@
         .text-content-left {
             align-items: flex-end; /* Aligns text and links against the image */
         }
-            /* Arrows */
-.arrowright {
-    position:absolute;
-  right:10px;
-  color: white;
-  background: none;
-  border: none;
-  font-size: 80px;
-  cursor: pointer;
-  z-index: 999;
-transform: translateY(-100px);
-}
 
-.arrowright:hover {
-      animation-play-state: paused;
-}
     }
         .block-img a {
             max-width: 40%;
@@ -738,6 +723,7 @@ Our FPGA-based prototyping tools enable rapid development and testing, turning i
     <a  class="carousel-item"><img src="images/project4.jpg" alt="project 4"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
     <a  class="carousel-item"><img src="images/project5.jpg" alt="project 5"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
     <a  class="carousel-item"><img src="images/project6.jpg" alt="project 6"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    
     <a  class="carousel-item"><img src="images/project1.jpg" alt="project 1"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
     <a  class="carousel-item"><img src="images/project2.jpg" alt="project 2"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
     <a  class="carousel-item"><img src="images/project3.jpg" alt="project 3"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
@@ -745,8 +731,8 @@ Our FPGA-based prototyping tools enable rapid development and testing, turning i
     <a  class="carousel-item"><img src="images/project5.jpg" alt="project 5"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
     <a  class="carousel-item"><img src="images/project6.jpg" alt="project 6"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
   </div>
-      <button class="arrowright">▶</button>
 </div>
+  Click and drag for more
 
         <div class="section">
                 <div class="generic">
@@ -1042,21 +1028,26 @@ function autoScroll() {
   requestAnimationFrame(autoScroll);
 }
 
+
+
 autoScroll();
+
+
+window.addEventListener('resize', () => {
+  trackWidth = track.scrollWidth / 2;
+});
 
 // Pause on hover
 container.addEventListener('mouseenter', () => scrollSpeed = 0);
 container.addEventListener('mouseleave', () => scrollSpeed = 4);
 
-// Arrow click: nudge by fixed distance
-const nudgeDistance = 600; // px per click
 
 
-document.querySelector('.arrowright').addEventListener('click', () => {
-  scrollPos += nudgeDistance;
-  if (scrollPos >= trackWidth) scrollPos -= trackWidth;
-});
 
+
+let isDown = false;
+let startX;
+let scrollLeft;
 container.addEventListener('touchstart', e => {
   startX = e.touches[0].pageX - container.offsetLeft;
   scrollLeft = container.scrollLeft;
@@ -1065,6 +1056,32 @@ container.addEventListener('touchstart', e => {
 container.addEventListener('touchmove', e => {
   const x = e.touches[0].pageX - container.offsetLeft;
   const walk = (x - startX) * 1.2;
+  container.scrollLeft = scrollLeft - walk;
+});
+
+
+container.addEventListener('mousedown', (e) => {
+  isDown = true;
+  container.classList.add('active');
+  startX = e.pageX - container.offsetLeft;
+  scrollLeft = container.scrollLeft;
+});
+
+container.addEventListener('mouseleave', () => {
+  isDown = false;
+  container.classList.remove('active');
+});
+
+container.addEventListener('mouseup', () => {
+  isDown = false;
+  container.classList.remove('active');
+});
+
+container.addEventListener('mousemove', (e) => {
+  if(!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - container.offsetLeft;
+  const walk = (x - startX) * 1.2; // scroll speed multiplier
   container.scrollLeft = scrollLeft - walk;
 });
     </script>
