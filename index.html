@@ -101,15 +101,10 @@
 
         }
 
-        .board_section h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-        }
 
-        .feature_modal, .board_section {
+        .board_section {
             max-width: 1800px;
-           margin: auto;
-
+            margin: auto;
             align-items: center;
             justify-content: center;
             background: #FFFFFF;
@@ -119,27 +114,21 @@
 
         }
 
-        .feature_modal {
-            padding-left: 10px;
-            max-height: 80vh;
+        .board_section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
         }
 
-        .feature-box_modal, .board_section-box {
+        .board_section-box {
             padding: 30px;
             margin: 10px 0;
-            border-radius: 10px;
             width: 400px;
             text-align: left;
-        }
-
-        .feature-box_modal {
-            padding-right: 30px;
-            margin: 10px 0;
-            max-height: 50vh;
+            
         }
 
 
-        .image-placeholder, .feature-box_modal .image-placeholder {
+        .image-placeholder {
             background: #AAAAAA;
             border-radius: 10px;
             margin-bottom: 15px;
@@ -150,7 +139,7 @@
             font-size: 18px;
         }
 
-        .feature-box_modal img, .board_section-box img, .block-img img {
+         img, .board_section-box img, .block-img img {
             max-width: 100%;
             max-height: 45vh;
             height: auto;
@@ -164,11 +153,10 @@
             justify-content: center;
             align-items: center;
             text-align: justify;
-            height:100%
-        }
-        .block-img {
+            height:100%;
             margin-bottom: 100px;
         }
+
         .modal_section{
             display: flex;
             flex-wrap: wrap;
@@ -178,19 +166,20 @@
     
 
         @media (min-width: 768px) {
-        .modal_section_image {
-            display: flex;
-            flex-wrap: nowrap;
-            height: 50vh;
-            max-width: 100%;
-            }
-    
+            .modal_section_image {
+                display: flex;
+                flex-wrap: nowrap;
+                height: 50vh;
+                max-width: 100%;
+                }
+        
 
-        .text-content-left {
-            align-items: flex-end; /* Aligns text and links against the image */
+            .text-content-left {
+                align-items: flex-end; /* Aligns text and links against the image */
+            }
+
         }
 
-    }
         .block-img a {
             max-width: 40%;
         }
@@ -447,7 +436,7 @@
                 font-size: 28px;
             }
 
-            .board_section-box, .text-content, .text-content-left, .feature-box_modal {
+             .text-content, .text-content-left  {
                 flex: 1 1 100%;
                 max-width: 100%;
                 text-align: left
@@ -482,50 +471,30 @@
             border-radius: 5px;
             font-size: 12px;
         }
-         .feature_modal{
-        display: flex;
-        overflow-x: auto;  /* Enables horizontal scrolling */
-        scroll-snap-type: x mandatory;
-        padding: 20px;
-        gap: 0px; /* Adds spacing between items */
-        margin-top:0;
-        margin-bottom:0;
-        padding-top: 0;
-        padding-bottom: 0;
 
-    }
-    .feature_modal{
-        margin:0;
-        padding: 0;
-    }
-    .board_section-box, .feature-box_modal{
-        flex: 0 0 80%;  /* Make it smaller than full width */
-        max-width: 80%;
-        scroll-snap-align: start;
-        padding-right: 0; /* Ensures no inner spacing */
-    }
-    .feature-box_modal{
-        padding-top: 0; /* Ensures no inner spacing */
-    }
-    .modal_section{
-            margin:5px;
+
+
+        .modal_section{
+                margin:5px;
+            }
+        .modal_section img{
+            width:100%
         }
-    .modal_section img{
-        width:100%
-    }
-    .logo-container {
-        flex-wrap: wrap; /* Allows wrapping on small screens */
-        justify-content: center;
-    }
-    
-    .logo-container img {
-        max-width: 150px; /* Reduce logo size for mobile */
-    }
+        .logo-container {
+            flex-wrap: wrap; /* Allows wrapping on small screens */
+            justify-content: center;
+        }
+        
+        .logo-container img {
+            max-width: 150px; /* Reduce logo size for mobile */
+        }
 
 
 
-        } /* end of NOT smartphone screen size condition */
+        }
+
 .carousel-container {
+    margin-top: -30px;
     aspect-ratio: 4 / 1;
   width: 100%;
   min-height:300px;
@@ -549,18 +518,21 @@
   position: relative;
   flex: 0 0 auto;
   height: 100%;
-  margin-right: -5px; /* slightly touch other images */
+  margin-right: -1px; /* slightly touch other images */
   overflow: hidden;
 }
+
 
 .carousel-item img {
   height: 100%;
   display: block;
   transition: transform 0.3s;
+   border-radius: 0px;
+
 }
 
 .carousel-item:hover img {
-  transform: scale(1.05); /* optional zoom effect */
+  transform: scale(1.15); /* optional zoom effect */
 }
 
 /* Overlay */
@@ -570,7 +542,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* black gradient */
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0)); /* black gradient */
   color: white;
   opacity: 0;
   transition: opacity 0.3s;
@@ -578,6 +550,8 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 10px;
+  padding-right:20px;
+  padding-left:20px;
   box-sizing: border-box;
 }
 
@@ -591,10 +565,23 @@
 }
 
 .overlay p {
-  margin: 2px 0 0;
-  font-size: 16px;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 300;
+
 }
 
+.clickanddrag{
+margin-top: -80px;
+  width:100%;
+  color: white;
+  text-align: end;
+font-weight: 400;
+
+}
+.clickanddrag p{
+    padding: 20px;
+}
     </style>
 </head>
 <body>
@@ -709,31 +696,56 @@ With expandable interfaces, synchronized clocks, and direct access to multiple a
         <div class="section">
             <h2>Real Projects, Real-Time Performance</h2>
             <p>From immersive spatial audio installations to multi-channel live systems, Polyphonic brings complex audio concepts to life. 
-Our FPGA-based prototyping tools enable rapid development and testing, turning ideas into working solutions faster than ever.
+Our FPGA-based prototyping tools enable rapid development and testing, turning ideas into working solutions faster than ever.</p>
+<p> <b>
+Explore projects that demonstrate both the power of our platform and our expertise in low-latency, high-channel-count audio systems:
+ </b>
 </p>
         </div>
+                <div class="clickanddrag">
+<p>Click and drag for more</p>
+                  </div>
+
+
     </div>
 
     <div class="section_light">
 <div class="carousel-container" id="carouselContain">
   <div class="carousel-track" id="carouselTrack">
-    <a  class="carousel-item"><img src="images/project1.jpg" alt="project 1"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project2.jpg" alt="project 2"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project3.jpg" alt="project 3"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project4.jpg" alt="project 4"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project5.jpg" alt="project 5"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project6.jpg" alt="project 6"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    
-    <a  class="carousel-item"><img src="images/project1.jpg" alt="project 1"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project2.jpg" alt="project 2"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project3.jpg" alt="project 3"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project4.jpg" alt="project 4"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project5.jpg" alt="project 5"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
-    <a  class="carousel-item"><img src="images/project6.jpg" alt="project 6"><div class="overlay"><h3>TODO</h3><p>Some description text</p></div></a>
+    <a  class="carousel-item"><img src="images/project1.jpg" alt="ULL Board"><div class="overlay"><h3>Ultra Low Latency (ULL) Audio Board</h3><p>Engineered to exploit the full potential of Xilinx Ultrascale+ FPGAs, the ULL Board supports sampling rates up to 768 kHz and end-to-end latency as low as 11 µs.
+Featuring 32 balanced analog inputs and outputs, the board can be daisy-chained for scalable, massive multichannel systems.</p></div></a>
+    <a  class="carousel-item"><img src="images/project2.jpg" alt="ULL Demontrator"><div class="overlay"><h3>PAW 2023 ULL Board Demonstration</h3><p>Demonstrated the Ultra Low Latency (ULL) Board at the PAW 2023 conference in Lyon using an array of amplified speakers.
+The setup showcased the board’s ability to deliver ultra-low-latency, high-fidelity audio processing across multiple channels in a live environment.</p></div></a>
+    <a  class="carousel-item"><img src="images/project3.jpg" alt="Centrale ANC"><div class="overlay"><h3>Real-Time Active Noise Control on FPGA</h3><p>Developed an FPGA implementation of a 14×14 FxLMS active noise control algorithm for École Centrale de Lyon’s 22-speaker listening room.
+Through advanced HLS and architectural optimizations, the system achieved 24 kHz real-time performance on a Genesys ZU3-EG board, outperforming prior CPU-based implementations running at only 2.5 kHz on a SpeedGoat.</p></div></a>
+    <a  class="carousel-item"><img src="images/project4.jpg" alt="Minimoog"><div class="overlay"><h3>FPGA-Based Minimoog Synthesizer Demo</h3><p>Implemented the Faust library’s Minimoog example on an FPGA to demonstrate the artistic potential of reconfigurable hardware for musical applications.
+The system runs a custom embedded Linux environment supporting multiple I/O protocols, with a USB MIDI controller driving the FPGA-based DSP engine in real time.</p></div></a>
+    <a  class="carousel-item"><img src="images/project5.jpg" alt="Array Line"><div class="overlay"><h3>Adjustable High-Density Beamforming Array</h3><p>Built from The LINE 8-speaker modules, this scalable array demonstrates FPGA-based beamforming and multichannel audio processing capabilities.
+The system’s size can be adjusted by combining multiple modules, showcasing flexible hardware architecture and precise low-latency control across a large number of channels.</p></div></a>
+    <a  class="carousel-item"><img src="images/project6.jpg" alt="Module Line"><div class="overlay"><h3>The LINE: Modular High-Density Speaker Array</h3><p>Developed a low-cost, modular 8-speaker PCB designed to demonstrate high-density audio array concepts while remaining portable and scalable.
+Each module can be daisy-chained, enabling up to 32 interconnected boards (256 speakers in total) driven by a single FPGA for synchronized, ultra-low-latency operation.</p></div></a>
+    <a  class="carousel-item"><img src="images/project7.jpg" alt="WFS"><div class="overlay"><h3>Frugal Wave Field Synthesis System</h3><p>Designed and implemented a cost-effective FPGA-based Wave Field Synthesis demonstrator, later showcased at INRIA Grenoble.
+A custom PCB connects 32 speakers directly to the FPGA, enabling ultra-low-latency audio processing from a single chip, an affordable and easily reproducible alternative to traditional multi-device WFS systems.</p></div></a>
+
+
+    <a  class="carousel-item"><img src="images/project1.jpg" alt="ULL Board"><div class="overlay"><h3>Ultra Low Latency (ULL) Audio Board</h3><p>Engineered to exploit the full potential of Xilinx Ultrascale+ FPGAs, the ULL Board supports sampling rates up to 768 kHz and end-to-end latency as low as 11 µs.
+Featuring 32 balanced analog inputs and outputs, the board can be daisy-chained for scalable, massive multichannel systems.</p></div></a>
+    <a  class="carousel-item"><img src="images/project2.jpg" alt="ULL Demontrator"><div class="overlay"><h3>PAW 2023 ULL Board Demonstration</h3><p>Demonstrated the Ultra Low Latency (ULL) Board at the PAW 2023 conference in Lyon using an array of amplified speakers.
+The setup showcased the board’s ability to deliver ultra-low-latency, high-fidelity audio processing across multiple channels in a live environment.</p></div></a>
+    <a  class="carousel-item"><img src="images/project3.jpg" alt="Centrale ANC"><div class="overlay"><h3>Real-Time Active Noise Control on FPGA</h3><p>Developed an FPGA implementation of a 14×14 FxLMS active noise control algorithm for École Centrale de Lyon’s 22-speaker listening room.
+Through advanced HLS and architectural optimizations, the system achieved 24 kHz real-time performance on a Genesys ZU3-EG board, outperforming prior CPU-based implementations running at only 2.5 kHz on a SpeedGoat.</p></div></a>
+    <a  class="carousel-item"><img src="images/project4.jpg" alt="Minimoog"><div class="overlay"><h3>FPGA-Based Minimoog Synthesizer Demo</h3><p>Implemented the Faust library’s Minimoog example on an FPGA to demonstrate the artistic potential of reconfigurable hardware for musical applications.
+The system runs a custom embedded Linux environment supporting multiple I/O protocols, with a USB MIDI controller driving the FPGA-based DSP engine in real time.</p></div></a>
+    <a  class="carousel-item"><img src="images/project5.jpg" alt="Array Line"><div class="overlay"><h3>Adjustable High-Density Beamforming Array</h3><p>Built from The LINE 8-speaker modules, this scalable array demonstrates FPGA-based beamforming and multichannel audio processing capabilities.
+The system’s size can be adjusted by combining multiple modules, showcasing flexible hardware architecture and precise low-latency control across a large number of channels.</p></div></a>
+    <a  class="carousel-item"><img src="images/project6.jpg" alt="Module Line"><div class="overlay"><h3>The LINE: Modular High-Density Speaker Array</h3><p>Developed a low-cost, modular 8-speaker PCB designed to demonstrate high-density audio array concepts while remaining portable and scalable.
+Each module can be daisy-chained, enabling up to 32 interconnected boards (256 speakers in total) driven by a single FPGA for synchronized, ultra-low-latency operation.</p></div></a>
+    <a  class="carousel-item"><img src="images/project7.jpg" alt="WFS"><div class="overlay"><h3>Frugal Wave Field Synthesis System</h3><p>Designed and implemented a cost-effective FPGA-based Wave Field Synthesis demonstrator, later showcased at INRIA Grenoble.
+A custom PCB connects 32 speakers directly to the FPGA, enabling ultra-low-latency audio processing from a single chip, an affordable and easily reproducible alternative to traditional multi-device WFS systems.</p></div></a>
+
+
   </div>
 </div>
-  Click and drag for more
-
         <div class="section">
                 <div class="generic">
             <h2>Custom Hardware Platforms</h2>
@@ -918,33 +930,6 @@ Our FPGA-based prototyping tools enable rapid development and testing, turning i
         </div>
     </div>
 
-    <div id="multichannel" class="modal">
-        <div class="modal__window">
-            <span class="modal__close">&times;</span> <!-- Closing cross -->
-            <div class="modal_section">
-                <div class="modal_section_image">
-                    <img src="images/multichannel.jpg" alt="Multichannel capabilities">
-            </div>
-                <div class="text-content_modal">
-                    <p>Zynq 7020 FPGA</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-        <div id="devboard" class="modal">
-        <div class="modal__window">
-            <span class="modal__close">&times;</span> <!-- Closing cross -->
-            <div class="modal_section">
-                <div class="modal_section_image">
-                    <img src="images/devboard.jpg" alt="Polyphonic development board">
-            </div>
-                <div class="text-content_modal">
-                    <p>Polyphonic Main Development Board</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- <div id="gui" class="modal">
         <div class="modal__window">
             <span class="modal__close">&times;</span> 
