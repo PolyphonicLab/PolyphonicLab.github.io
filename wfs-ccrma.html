@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frugal WFS System – User Guide</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner_back">
+    <div class="logo">
+        <img src="images/logo.svg" alt="logo">
+    </div>
+    <div class="hero">
+        <h1>Frugal Wave Field Synthesis System</h1>
+    </div>
+</div>
+
+<div class="section_light">
+    <div class="section">
+        <h2>Overview</h2>
+        <p>
+            The Frugal Wave Field Synthesis (WFS) system is a cost‑effective, FPGA‑driven spatial audio platform designed to make real‑time WFS accessible and reproducible. This page provides a complete walkthrough of the system architecture, hardware, software, and usage instructions.
+        </p>
+    </div>
+</div>
+
+<div class="section_dark">
+    <div class="section">
+        <h2>Hardware Architecture</h2>
+        <p>
+            At the core of the system is a custom PCB interfaced directly with an FPGA. The board manages 32 amplified loudspeaker channels with ultra‑low latency. The design eliminates expensive multi‑device setups typically required for WFS.
+        </p>
+        <ul>
+            <li>32 amplified channels</li>
+            <li>Direct FPGA connection via TDM / custom bus</li>
+            <li>Low‑noise power distribution</li>
+            <li>Stackable for expanded arrays</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section_light">
+    <div class="section">
+        <h2>Software Pipeline</h2>
+        <p>The DSP is generated using the Syfala compiler, allowing real‑time synthesis of WFS algorithms directly from Faust or C++.</p>
+        <ul>
+            <li>Source encoding (virtual point sources)</li>
+            <li>Delay‑based or filtered WFS formulations</li>
+            <li>Real‑time monitoring through USB‑hosted GUI</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section_dark">
+    <div class="section">
+        <h2>User Guide</h2>
+        <h3>1. Powering the System</h3>
+        <p>Use a 24V power supply capable of delivering at least 4A for a single 32‑channel unit.</p>
+
+        <h3>2. Connecting the FPGA</h3>
+        <p>Attach the board to your FPGA using the provided ribbon cables or TDM interface. Ensure clock synchronization is enabled in the bitstream.</p>
+
+        <h3>3. Audio Input</h3>
+        <p>Depending on your FPGA setup, audio can be streamed via:</p>
+        <ul>
+            <li>Analog inputs</li>
+            <li>USB audio interface</li>
+            <li>Embedded Linux streaming</li>
+        </ul>
+
+        <h3>4. Configuring a WFS Scene</h3>
+        <p>Use the GUI or control board to set virtual source positions (x, y). The system updates rendering instantly.</p>
+
+        <h3>5. Expanding the Array</h3>
+        <p>Multiple boards may be chained to increase the number of speakers. Each board automatically aligns timing based on its identifier.</p>
+    </div>
+</div>
+
+<div class="section_light">
+    <div class="section">
+        <a class="btn btn-secondary" href="index.html">← Back to main page</a>
+    </div>
+</div>
+
+</body>
+</html>
