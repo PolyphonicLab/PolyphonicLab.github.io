@@ -3,83 +3,268 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frugal WFS System – User Guide</title>
+<title>Frugal WFS System - User Guide</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <!-- Banner -->
-<div class="banner_back">
-    <div class="logo">
+<div class="banner_back banner_sub">
+    <div class="logo_sub">
+         <a href="index.html">
         <img src="images/logo.svg" alt="logo">
+        </a>
     </div>
     <div class="hero">
         <h1>Frugal Wave Field Synthesis System</h1>
     </div>
 </div>
 
-<div class="section_light">
-    <div class="section">
-        <h2>Overview</h2>
-        <p>
-            The Frugal Wave Field Synthesis (WFS) system is a cost‑effective, FPGA‑driven spatial audio platform designed to make real‑time WFS accessible and reproducible. This page provides a complete walkthrough of the system architecture, hardware, software, and usage instructions.
-        </p>
-    </div>
-</div>
-
 <div class="section_dark">
     <div class="section">
-        <h2>Hardware Architecture</h2>
+<p>The <b>Polyphonic Frugal Wave Field Synthesis (WFS)</b> system is an FPGA-driven spatial audio platform designed to make real-time WFS accessible and reproducible.
+The system installed at CCRMA serves as an <b>interface connected to the existing speaker array</b>.</p>
+
         <p>
-            At the core of the system is a custom PCB interfaced directly with an FPGA. The board manages 32 amplified loudspeaker channels with ultra‑low latency. The design eliminates expensive multi‑device setups typically required for WFS.
-        </p>
-        <ul>
-            <li>32 amplified channels</li>
-            <li>Direct FPGA connection via TDM / custom bus</li>
-            <li>Low‑noise power distribution</li>
-            <li>Stackable for expanded arrays</li>
-        </ul>
+        This page provides a complete walkthrough of the system architecture, hardware, software, and usage instructions.
+</p>
+
     </div>
 </div>
 
-<div class="section_light">
-    <div class="section">
-        <h2>Software Pipeline</h2>
-        <p>The DSP is generated using the Syfala compiler, allowing real‑time synthesis of WFS algorithms directly from Faust or C++.</p>
-        <ul>
-            <li>Source encoding (virtual point sources)</li>
-            <li>Delay‑based or filtered WFS formulations</li>
-            <li>Real‑time monitoring through USB‑hosted GUI</li>
-        </ul>
+
+ <div class="section_light">
+        <div class="section">
+            <div class="block-img no_link">
+        <img src="images/wfs/WFS_full.jpg" alt="WFS System">
+                <div class="text-content">
+                    <h2>System Caracteristic</h2>
+<p>
+    This system allows you to place virtual sound sources in space, both <em>below</em> and <em>in front of</em> the bar, using Wave Field Synthesis (WFS), a spatial audio technique that reconstructs the sound field of virtual sources by reproducing their wavefronts through a loudspeaker array.
+</p>
+<ul>
+    <li>Up to 16 audio sources</li>
+    <li>OSC-based source position control</li>
+    <li>Audio over Ethernet</li>
+    <li>Stackable for expanded arrays</li>
+</ul>
+                </div>
+            </div>
+
+            <div class="block-img no_link reverse">
+                <div class="text-content-left">
+                <h2>Limitations</h2>
+<p>
+    As currently configured, the board drives only the bottom array of 32 loudspeakers. Additional boards can be connected to enable the full speaker range or to integrate further arrays. For more information, please contact me.
+</p>
+<ul>
+    <li>Only the 32 bottom speakers of the array are used (lower spatial resolution than 64 speakers)</li>
+    <li>Periodic clicks due to the current Ethernet implementation (temporary)</li>
+    <li>Limited output power (3 W per speaker)</li>
+<li>Requires Linux to operate (macOS support coming soon)</li>
+
+</ul>
+
+                </div>
+                <img src="images/wfs/limitations.jpg" alt="System limitations">
+                
+            </div>
+        </div>
     </div>
-</div>
 
 <div class="section_dark">
-    <div class="section">
-        <h2>User Guide</h2>
-        <h3>1. Powering the System</h3>
-        <p>Use a 24V power supply capable of delivering at least 4A for a single 32‑channel unit.</p>
+    <div class="section generic">
+<h2>User Guide</h2>
 
-        <h3>2. Connecting the FPGA</h3>
-        <p>Attach the board to your FPGA using the provided ribbon cables or TDM interface. Ensure clock synchronization is enabled in the bitstream.</p>
+<h3>0. Naming</h3>
+<p>
+    The system is composed of two boards. The smaller board, which contains the FPGA, will be referred to as the
+    <strong>FPGA board</strong>. The larger board, which contains the amplifiers, will be referred to as the
+    <strong>amp board</strong>. Connect the two boards as the picture below.
 
-        <h3>3. Audio Input</h3>
-        <p>Depending on your FPGA setup, audio can be streamed via:</p>
-        <ul>
-            <li>Analog inputs</li>
-            <li>USB audio interface</li>
-            <li>Embedded Linux streaming</li>
-        </ul>
+</p>
+<div class="step-images">
+    <img src="images/wfs/twoboards.png" alt="FPGA and amplifier boards overview" class="step-image">
+</div>
 
-        <h3>4. Configuring a WFS Scene</h3>
-        <p>Use the GUI or control board to set virtual source positions (x, y). The system updates rendering instantly.</p>
+<h3>1. Connecting the Board to the WFS System</h3>
+<p>
+    For simplicity, the amp board uses Sub-D25 connectors. Using the provided custom cables, connect the DB25 ports to
+    the speaker array. The DB25 connectors are numbered 1 to 4. On the speaker array side, connect each cable to the
+    correspondingly numbered port. Be careful, these connectors are fragile!
+</p>
+<div class="step-images">
+    <img src="images/wfs/conn1.jpg" alt="DB25 connection to the speaker array" class="step-image">
+    <img src="images/wfs/conn2.jpg" alt="Close-up of DB25 connectors" class="step-image">
+</div>
 
-        <h3>5. Expanding the Array</h3>
-        <p>Multiple boards may be chained to increase the number of speakers. Each board automatically aligns timing based on its identifier.</p>
+<h3>2. Powering the System</h3>
+<p>
+    Connect the power supply to the FPGA board. Use a 5 V power supply (center-positive) capable of delivering at least
+    4 A for a single 32-channel unit. Then connect an Ethernet cable to the FPGA board.
+</p>
+<div class="step-images">
+    <img src="images/wfs/power_ethernet.png" alt="Power and Ethernet connections on the FPGA board" class="step-image">
+</div>
+
+
+<h3>3. Powering the Amplifier</h3>
+<p>
+    The FPGA board outputs two identical power cables at the top. Connect one of them to the amplifier input power
+    connector located on the right side of the amp board.
+</p>
+<div class="step-images">
+    <img src="dummy.jpg" alt="Power cable from FPGA board to amp board" class="step-image">
+</div>
+
+<h3>4. Waiting for Boot</h3>
+<p>
+    The FPGA boots automatically when powered on. Boot is complete when the Polyphonic logo turns green.
+    You can then begin communicating with the system via Ethernet.
+</p>
+<div class="step-images">
+    <img src="dummy.jpg" alt="Polyphonic logo indicating FPGA boot status" class="step-image">
+</div>
+
+<h3>5. Creating the Host Computer Ethernet Server</h3>
+<p>
+    To create the server, clone our Git repository:<br>
+    <code>https://github.com/inria-emeraude/syfala</code><br><br>
+
+    Navigate to the server directory:<br>
+    <code>cd syfala/source/linux/syfala-server</code><br><br>
+
+    Then run the server using Rust (install Rust if needed):<br>
+    <code>pw-jack cargo run --release</code><br><br>
+
+    If the server is running correctly, you should see a message similar to:<br>
+    <code>INFO server/src/main.rs:114: Starting UDP</code>
+</p>
+
+<h3>6. Redirect Your Sound Source to the FPGA</h3>
+<p>
+    You should now see the system in your preferred JACK routing tool.
+    For example, you can use <strong>qpwgraph</strong>.
+</p>
+
+<h3>7. Routing From Your DAW</h3>
+<p>
+    You can now connect your audio sources from your DAW to the system
+    (see the Ardour example in the image below).
+</p>
+<div class="step-images">
+    <img src="dummy.jpg" alt="Qpwjack with ardour" class="step-image">
+</div>
+
+<h3>8. Control with OSC</h3>
+<p>
+    You can either use the interface written in Processing (install Processing if needed). 
+    Open the following file with the Processing GUI and run it:<br>
+    <code>syfala/examples/cpp/wfs/interface/hls_wfs/hls_wfs.pde</code>
+</p>
+
+<p>
+    You can also send OSC commands directly, controlling the <code>x</code> and <code>y</code> position of each source with the following convention:
+</p>
+
+<p>
+    <code>"/wfs/source&lt;i&gt;/y/&lt;yPos&gt;"</code><br>
+    <code>"/wfs/source&lt;i&gt;/x/&lt;xPos&gt;"</code>
+</p>
+
+<p>
+    Replace <code>&lt;i&gt;</code> with the source number. 
+    <code>yPos</code> is typically in the range <code>-4</code> (source far away) to <code>4</code> (source near), and 
+    <code>xPos</code> is typically in the range <code>-2.5</code> (left) to <code>2.5</code> (right).
+</p>
+
+<div class="step-images">
+    <img src="images/wfs/GUI.png" alt="Processing GUI" class="step-image">
+</div>
+
+
+
     </div>
 </div>
 
+
+
+
+
 <div class="section_light">
+    <div class="section generic">
+<h2>Troubleshooting</h2>
+
+<h3>“That doesn't work!”</h3>
+<p>
+    Great… let's start by checking the LEDs on the side of the board.
+</p>
+
+<div class="step-images">
+    <img src="images/wfs/troubleshooting.png" alt="Power and Ethernet connections on the FPGA board" class="step-image">
+</div>
+
+<h3>LED Indicators</h3>
+<p>
+    Use the following checks to diagnose common issues:
+</p>
+<ul>
+    <li>
+        <strong>Power LED (red)</strong>: When you plug in the power supply, the red <em>POWER</em> LED should turn on.<br>
+        If it does not, there is likely a problem with your power supply or connection.
+    </li>
+    <li>
+        <strong>Loaded LED (green)</strong>: A few seconds after power-up, the green <em>LOADED</em> LED should light up.<br>
+        If it does not, there may be a problem with the SD card:
+        <ul>
+            <li>Is the SD card properly inserted?</li>
+            <li>Can you read it from your computer?</li>
+        </ul>
+        If the SD card appears faulty or unreadable, please contact: 
+        <a href="mailto:maxime.popoff@inria.fr">maxime.popoff@inria.fr</a>.
+    </li>
+    <li>
+        <strong>Ethernet LED</strong>: The Ethernet activity LED should blink when there is traffic on the Ethernet port.<br>
+        After boot, if this LED does not light up even though the Ethernet cable is connected at both ends, check:
+        <ul>
+            <li>The Ethernet cable (try another one if possible)</li>
+            <li>That the cable is fully inserted in both the FPGA board and the switch/computer</li>
+        </ul>
+    </li>
+<li>
+    <strong>Logo LED</strong>: The octopus logo should light up green in less than a minute after powering the board. 
+    If it stays red or does not light up at all, please contact me.
+</li>
+
+            If all LEDs look correct, the problem may come from the host computer.
+
+</ul>
+
+
+<h3>Host Computer</h3>
+<p>
+    On the host machine, verify the following:
+</p>
+<ul>
+    <li>Can you successfully launch the server with:<br>
+        <code>pw-jack cargo run --release</code>?</li>
+    <li>Can you see the FPGA device in <strong>qpwgraph</strong> (or your preferred JACK routing tool)?</li>
+    <li>
+        Can you send audio to the system from something other than your DAW?<br>
+        For example, try routing audio from a web browser or a simple media player.
+    </li>
+</ul>
+
+<h3>Still Nothing?</h3>
+<p>
+    It is difficult to diagnose everything remotely. If the problem persists, please contact:<br>
+    <a href="mailto:maxime.popoff@inria.fr">maxime.popoff@inria.fr</a>
+</p>
+
+</div>
+
+
+<div class="section_dark">
     <div class="section">
         <a class="btn btn-secondary" href="index.html">← Back to main page</a>
     </div>
